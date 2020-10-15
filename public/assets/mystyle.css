@@ -1,10 +1,11 @@
 body {
  text-align: center;
- background-image: url("nasa2.jpg");
+ background-image: url("./images/nasa2.jpg");
  color: red;
  margin-left: 2em;
  margin-right: 2em;
  } 
+
 h1 {
  background: black;
  color: red;
@@ -19,7 +20,7 @@ h4 {
 font-size: 2em;
  }
 .sorry-message {
- font-size: 3em;
+ font-size: 1.5em;
 }
 a:link {color: blue; }
 a:visited {color: purple; }
@@ -27,6 +28,11 @@ a:hover {color: darkorange; }
 .welcome { margin: 0 auto;  text-align: center; }
 
 table, td, th {font-size: 1.5em; background-color: black; margin: 0 auto; border: 2px solid darkorange; }
+
+.back {
+	display: inline-block;
+	margin-bottom: 18px;
+}
 
 /* あしあと部分のCSS */
 .access-counter {
@@ -45,4 +51,9 @@ table, td, th {font-size: 1.5em; background-color: black; margin: 0 auto; border
     font-weight: normal;
     font-size: 1.5em;
     text-align: center;
+}
+
+.br {
+  white-space: pre-line;
+  color: aliceblue;
 }
