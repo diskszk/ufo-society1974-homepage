@@ -26,6 +26,9 @@ a:visited {color: purple; }
 a:hover {color: darkorange; }
 .welcome { margin: 0 auto;  text-align: center; }
 
+tbody {
+  width: 10%;
+}
 table, td, th {font-size: 1.5em; background-color: black; margin: 0 auto; border: 2px solid darkorange;
 }
 
@@ -128,4 +131,23 @@ table {
 
 .tr-song {
   cursor: pointer;
+}
+
+/* Sign Up */
+.sign-uo-container{
+  font-size: 1.5em;
+}
+.input-list {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input-list > input {
+  height: 2em;
+  width: 240px;
+  margin: 0 auto;
+  margin-bottom: 3em;
 }

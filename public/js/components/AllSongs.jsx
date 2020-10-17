@@ -37,7 +37,7 @@ const AllSongs = () => {
 
   return (
     <div className="all-songs">
-      <p>all songs</p>
+      <h2>all songs</h2>
       {isPreview && (
         <Note
           isPreview={isPreview}
