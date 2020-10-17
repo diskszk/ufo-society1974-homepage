@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Note from './Note';
 import { kite, young } from './songData';
 
@@ -20,7 +20,7 @@ const songs = [
 ];
 
 
-const AllSongs = () => {
+const SongsTable = () => {
   const [isPreview, setIsPreview] = useState(false);
   const [song, setSong] = useState({});
 
@@ -65,4 +65,4 @@ const AllSongs = () => {
   );
 }
 
-export default AllSongs;
+export default SongsTable;
