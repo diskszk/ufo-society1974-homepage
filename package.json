@@ -14,16 +14,20 @@
     "@babel/preset-env": "^7.12.0",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "style-loader": "^2.0.0",
     "webpack": "^5.1.1",
     "webpack-cli": "^4.0.0",
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack",
     "webpack-build": "webpack -p --config webpack.config.js",
-    "webpack-watch": "webpack --watch --config webpack.config.js"
+    "webpack-watch": "webpack --watch --config webpack.config.js",
+    "start": "npx webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

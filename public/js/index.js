@@ -1,10 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Lyric from './components/Lyric';
+import '../assets/mystyle.css';
+import AllSongs from "./components/AllSongs";
 
+// reactの元となるファイル
 const Layout = () => {
   return (
-    <Lyric />
+    <div className="lyric-page">
+      <AllSongs />
+    </div>
   );
 }
 
