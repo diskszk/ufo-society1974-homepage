@@ -1,46 +1,26 @@
 import React from 'react';
-import Router from './Router';
+import { Login, Lyric, SignUp } from './pages';
+import { Route } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const App = () => {
 
-  const dispatch = useDispatch();
   const selector = useSelector(state => state);
-
   console.log(selector.router);
 
   // いまいるページのURLを取得
-  const pathName = selector.router.location.pathname
+  const rootPath = selector.router.location.pathname
+  // console.log(rootPath);
 
-  console.log(pathName);
-
+  // /develop.html#/loginでloginにアクセスできる・・・なぜ
   return (
-    <div>
-      <Router rootPath={pathName} />
-    </div>
+    <>
+      <Route exact path={"/"} component={Lyric} />
+      <Route exact path={"/login"} component={Login} />
+      <Route exact path={"/signup"} component={SignUp} />
+    </>
   );
 }
 
 export default App;
-
-// import AllSongs from './components/AllSongs';
-// import SingUp from './pages/SignUp';
-
-// import { useDispatch, useSelector } from 'react-redux';
-
-
-// const App = () => {
-//   const dispatch = useDispatch();
-//   const selector = useSelector((state) => state);
-//   console.log(selector.users);
-//   return (
-//     <div className="lyric-page">
-//       {/* <AllSongs /> */}
-//       <SingUp />
-
-//     </div>
-//   );
-// }
-
-// export default App;

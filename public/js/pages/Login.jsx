@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { useDispatch } from 'react-redux';
 import { push } from "connected-react-router";
 
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logPath } from '../helper/logPath';
+
 const Login = () => {
-  const dispatch = useDispatch();
+
+  const selector = useSelector(state => state);
+
+  logPath();
+  
   return (
     <div>
-      <h2>ログイン</h2>
-      <button
-        onClick={() => dispatch(push("/"))}
-      >
-        もどる
-      </button>
+      <h1>ログイン</h1>
+      <Link to="/">Lyric</Link>
     </div>
   );
 }
