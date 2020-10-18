@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {signUp} from '../../../reducks/users/operation'
 
 const SignUp = () => {
   const [email, setEmail] = useState(""),
