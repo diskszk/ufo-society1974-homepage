@@ -59,7 +59,7 @@ table {
 /* 歌詞のCSS */
 .lyric {
     white-space: pre-line;
-    padding-left: 10%;
+    padding: 0 48px;
   }
 
 .song-title {
@@ -85,7 +85,6 @@ table {
   background-size:100% 1em;
   line-height:2;
   background-color: #eee;
-  /* min-width: 85vw; */
   margin: 0 auto;
   border-radius: 4px;
 }
@@ -101,7 +100,6 @@ table {
   height: 100%;
   width: 100%;
   position: absolute;
-
 }
 .modal-inner {
   position: absolute;
@@ -131,23 +129,4 @@ table {
 
 .tr-song {
   cursor: pointer;
-}
-
-/* Sign Up */
-.sign-uo-container{
-  font-size: 1.5em;
-}
-.input-list {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.input-list > input {
-  height: 2em;
-  width: 240px;
-  margin: 0 auto;
-  margin-bottom: 3em;
 }

@@ -1,3 +1,5 @@
+
+
 export const kite = {
   id: 1,
   title: "kite",
@@ -56,3 +58,22 @@ export const young = {
   
 `
 };
+
+
+
+export const songs = [
+  {
+    id: kite.id,
+    title: kite.title,
+    titleJP: kite.titleJP,
+    story: kite.story,
+    lyric: kite.lyric,
+  },
+  {
+    id: young.id,
+    title: young.title,
+    titleJP: young.titleJP,
+    story: young.story,
+    lyric: young.lyric,
+  },
+];
