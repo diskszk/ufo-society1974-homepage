@@ -5,6 +5,14 @@ body {
   margin: 0;
 } 
 
+a {
+  color: white;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+}
+
 h1 {
  background: black;
  color: red;
@@ -21,9 +29,9 @@ font-size: 2em;
 .sorry-message {
  font-size: 1.5em;
 }
-a:link {color: blue; }
-a:visited {color: purple; }
-a:hover {color: darkorange; }
+/* a:link {color: white; }
+a:visited {color: white; } */
+a:hover {color: darkorange; } 
 .welcome { margin: 0 auto;  text-align: center; }
 
 tbody {
@@ -130,3 +138,11 @@ table {
 .tr-song {
   cursor: pointer;
 }
+
+.table a {
+  color: blue;
+}
+.table a:visited {
+  color: blue;
+}
+.table a:hover {color: white; } 

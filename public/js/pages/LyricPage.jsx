@@ -3,7 +3,7 @@ import Note from '../components/Note';
 import SongTable from '../components/SongTable';
 import { compare } from '../helper/compare';
 
-import { songs } from '../components/songData';       // test data
+import { songs } from '../components/songData';       // test data.
 
 const LyricPage = () => {
 
