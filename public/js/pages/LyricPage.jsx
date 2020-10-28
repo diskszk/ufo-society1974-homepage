@@ -1,15 +1,15 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Note from '../components/Note';
 import SongTable from '../components/SongTable';
 import { compare } from '../helper/compare';
-
-import { songs } from '../components/songData';       // test data.
+import { getSongs } from '../components/getSongs';
 
 const LyricPage = () => {
 
   const [isPreview, setIsPreview] = useState(false);
   const [song, setSong] = useState({});
-  const sortedSongs = songs.slice().sort(compare);
+  const [songs, setSongs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const hundleClick = (song) => {
     if (!isPreview) {
@@ -22,6 +22,16 @@ const LyricPage = () => {
     setIsPreview(false);
   }, []);
 
+  useEffect(() => {
+    getSongs()
+      .then(list => {
+        setSongs(list);
+        setLoading(false);
+      }).catch(e => {
+        throw new Error(e);
+      })
+  }, [setSongs]);
+
   return (
     <article>
       {isPreview && (
@@ -33,12 +43,17 @@ const LyricPage = () => {
       )}
       <p><a href="./index.html">トップページ</a></p>
       <h1>歌詞の記録</h1>
-      <div className="all-songs">
-        <SongTable
-          songs={sortedSongs}
-          hundleClick={hundleClick}
-        />
-      </div>
+
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : (
+          <div className="all-songs">
+            <SongTable
+              songs={songs}
+              hundleClick={hundleClick}
+            />
+          </div>
+        )}
     </article>
   );
 }
