@@ -1,9 +1,8 @@
-import React from 'react'
-import Lyric from './Lyric'
+import React from "react";
+// import Lyric from "./Lyric";
 
 // モーダルみたいに表示する
-const Note = (props) => {
-
+const Note = (props: any) => {
   return (
     <div className="modal">
       {/* ↑モーダルの背景をクリックでモーダルを消したい */}
@@ -11,16 +10,16 @@ const Note = (props) => {
       <div className="modal-inner">
         <div className="modal-content note">
           <p className="song-title">{props.song.title}</p>
-          <Lyric
-            lyric={props.song.lyric}
-          />
           <div className="btn-container">
-            <button className="modal-close-btn" onClick={props.noteClose}>close</button>
+            {/* 歌詞のコンポーネント */}
+            <button className="modal-close-btn" onClick={props.noteClose}>
+              close
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Note;
