@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var AlbumListPage_1 = __importDefault(require("./pages/AlbumListPage"));
-// ルーティング
+// ルーティングを実装する
 var App = function () {
     return react_1.default.createElement(AlbumListPage_1.default, null);
 };

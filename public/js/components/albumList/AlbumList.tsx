@@ -7,6 +7,7 @@ import { Album } from "../../types";
 const AlbumList: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
 
+
   useEffect(() => {
     const fetch = async () => {
       const res = await getAlbums();

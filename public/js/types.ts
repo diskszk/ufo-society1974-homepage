@@ -30,3 +30,15 @@ export type Services = {
   iTunes: string;
   Bandcamp: string;
 };
+
+// redux
+export type RootStore = {
+  loadingStatus: LoadingStatus;
+};
+export type LoadingStatus = {
+  isLoading: boolean;
+  error: {
+    isError: boolean;
+    message: string;
+  };
+};
