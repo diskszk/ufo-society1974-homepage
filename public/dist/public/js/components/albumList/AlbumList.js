@@ -72,7 +72,6 @@ var AlbumList = function () {
                     case 0: return [4 /*yield*/, getAlbums_1.getAlbums()];
                     case 1:
                         res = _a.sent();
-                        setAlbums(res);
                         return [2 /*return*/];
                 }
             });

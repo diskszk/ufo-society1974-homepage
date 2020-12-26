@@ -37,32 +37,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAlbums = void 0;
-var firebase_1 = require("../firebase");
+var firebase_1 = require("./firebase");
 // fetch -> 整形 -> storeにset
-var getAlbums = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var res, albums;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, firebase_1.db.collection("published_albums").get()];
-            case 1:
-                res = _a.sent();
-                albums = res.docs.map(function (snapshot) {
-                    var doc = snapshot.data();
-                    var album = {
-                        discription: doc.discription,
-                        imageFile: {
-                            filename: doc.imageFile.filename,
-                            path: doc.imageFile.path,
+var getAlbums = function () {
+    return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+        var res, albums;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, firebase_1.db.collection("published_albums")];
+                case 1:
+                    res = _a.sent();
+                    albums = [
+                        {
+                            discription: "",
+                            imageFile: {
+                                filename: "",
+                                path: "",
+                            },
+                            id: "",
+                            publish_date: "",
+                            title: "",
                         },
-                        id: doc.id,
-                        publish_date: doc.publish_date,
-                        title: doc.title,
-                    };
-                    console.dir(album);
-                    return album;
-                });
-                return [2 /*return*/, albums];
-        }
-    });
-}); };
+                    ];
+                    return [2 /*return*/, albums];
+            }
+        });
+    }); };
+    // console.dir(res);
+    // const albums: Album[] = res.docs.map((snapshot) => {
+    //   const doc = snapshot.data();
+    //   const album: Album = {
+    //     discription: doc.discription,
+    //     imageFile: {
+    //       filename: doc.imageFile.filename,
+    //       path: doc.imageFile.path,
+    //     },
+    //     id: doc.id,
+    //     publish_date: doc.publish_date,
+    //     title: doc.title,
+    //   };
+    //   console.dir(album);
+    //   return album;
+    // });
+    // return albums;
+};
 exports.getAlbums = getAlbums;
