@@ -8,6 +8,5 @@ export const compare = (a, b) => {
   } else if (idB > idA) {
     comparison = -1;
   }
-
   return comparison;
-}
+};

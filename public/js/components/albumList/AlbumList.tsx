@@ -10,7 +10,7 @@ const AlbumList: React.FC = () => {
   useEffect(() => {
     const fetch = async () => {
       const res = await getAlbums();
-      setAlbums(res);
+      // setAlbums(res);
     };
     fetch();
   }, []);

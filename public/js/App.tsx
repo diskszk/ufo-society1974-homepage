@@ -1,7 +1,7 @@
 import React from "react";
 import AlbumListPage from "./pages/AlbumListPage";
 
-// ルーティング
+// ルーティングを実装する
 const App = () => {
   return <AlbumListPage />;
 };

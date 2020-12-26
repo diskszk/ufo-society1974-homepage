@@ -5,12 +5,11 @@ module.exports = {
     mode: "development",
     context: path.join(__dirname, "public"),
     entry: "./dist/public/js/index.js",
-    // entry: "./js/index.js",
     module: {
         rules: [
             // babel
             {
-                test: /\.(j|t)sx?$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: "ts-loader",
             },
