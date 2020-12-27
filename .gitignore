@@ -65,4 +65,5 @@ node_modules/
 .env
 
 index.min.js.LICENSE.txt
-public/dist
+
+public/dist/

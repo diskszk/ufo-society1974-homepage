@@ -21,7 +21,6 @@ export type Song = {
   title: string;
   wordsRights: string;
   musicRights: string;
-  created_at?: firebase.firestore.Timestamp;
 };
 
 export type Services = {
