@@ -13,18 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [
-          "ts-loader",
-          {
-            loader: "react-svg-loader",
-            options: {
-              svgo: {
-                plugins: [{ removeTitle: false }],
-                floatPrecision: 2,
-              },
-            },
-          },
-        ],
+        use: "ts-loader",
       },
     ],
   },

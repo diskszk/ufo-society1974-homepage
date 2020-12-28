@@ -1,9 +1,12 @@
 import React from "react";
 import { Services } from "../types";
-import Itunes from "react-svg-loader!../../assets/images/apple-itunes.svg";
-import AppleMusic from "react-svg-loader!../../assets/images/apple-music.svg";
-import Spotify from "react-svg-loader!../../assets/images/spotify-logo.svg";
-import BandCamp from "react-svg-loader!../../assets/images/bandcamp.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faApple,
+  faItunes,
+  faSpotify,
+  faBandcamp,
+} from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
 
 type Props = {
@@ -11,17 +14,23 @@ type Props = {
 };
 
 const Ul = styled.ul({
-  maxHeight: "64px",
-  backgroundColor: "rgba(238, 238, 238, .85)",
+  maxHeight: "128px",
+  backgroundColor: "rgba(20, 20, 20, .5)",
   display: "flex",
   justifyContent: "space-around",
   flexWrap: "wrap",
   borderRadius: "4px",
 });
 const LogoList = styled.li({
-  height: "60px",
-  margin: "auto 2px",
+  paddingTop: "4px",
+  height: "64px",
+  margin: "auto 20px",
   cursor: "pointer",
+  display: "flex",
+  flexDirection: "column",
+});
+const LogoP = styled.p({
+  margin: 0,
 });
 
 const ServiceList: React.FC<Props> = ({ services }) => {
@@ -30,7 +39,8 @@ const ServiceList: React.FC<Props> = ({ services }) => {
       {services.iTunes && (
         <LogoList>
           <a href={services.iTunes} target="_blank" rel="noopener noreferrer">
-            <Itunes width={100} height={"100%"} />
+            <FontAwesomeIcon icon={faItunes} size="2x" />
+            <LogoP>iTunes</LogoP>
           </a>
         </LogoList>
       )}
@@ -41,21 +51,24 @@ const ServiceList: React.FC<Props> = ({ services }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AppleMusic width={100} height={"100%"} />
+            <FontAwesomeIcon icon={faApple} size="2x" />
+            <LogoP>Apple Music</LogoP>
           </a>
         </LogoList>
       )}
       {services.Spotify && (
         <LogoList>
           <a href={services.Spotify} target="_blank" rel="noopener noreferrer">
-            <Spotify width={100} height={"100%"} />
+            <FontAwesomeIcon icon={faSpotify} size="2x" />
+            <LogoP>Spotify</LogoP>
           </a>
         </LogoList>
       )}
       {services.Bandcamp && (
         <LogoList>
           <a href={services.Bandcamp} target="_blank" rel="noopener noreferrer">
-            <BandCamp width={100} height={"100%"} />
+            <FontAwesomeIcon icon={faBandcamp} size="2x" />
+            <LogoP>BandCamp</LogoP>
           </a>
         </LogoList>
       )}
