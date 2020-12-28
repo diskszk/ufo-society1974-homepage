@@ -4,10 +4,8 @@ import style from "styled-components";
 import { getAlbums } from "../lib/getAlbums";
 import { Album } from "../types";
 import { MIN_WIDTH } from "../constans";
+import { PageHeader } from "./styles";
 
-const PageHeader = style.h1({
-  fontSize: "2em",
-});
 const Ul = style.ul`
   display: flex;
   flex-direction: column;
@@ -16,8 +14,8 @@ const Ul = style.ul`
 
   // PC
   @media (min-width: ${MIN_WIDTH}) {
-    // display: 'flex';
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
 `;
@@ -26,8 +24,12 @@ const AlbumListPage: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
 
   const fetch = async () => {
-    const fetchedAlbums: Album[] = await getAlbums();
-    setAlbums(fetchedAlbums);
+    try {
+      const fetchedAlbums: Album[] = await getAlbums();
+      setAlbums(fetchedAlbums);
+    } catch (e) {
+      console.error(e);
+    }
   };
   useEffect(() => {
     fetch();
