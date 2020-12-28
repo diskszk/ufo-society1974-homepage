@@ -5,7 +5,7 @@ import { getAlbums } from "../lib/getAlbums";
 import { Album } from "../types";
 import { MIN_WIDTH } from "../constans";
 
-const H1 = style.h1({
+const PageHeader = style.h1({
   fontSize: "2em",
 });
 const Ul = style.ul`
@@ -35,7 +35,7 @@ const AlbumListPage: React.FC = () => {
 
   return (
     <article>
-      <H1>UFO societyの楽曲</H1>
+      <PageHeader>UFO societyの楽曲</PageHeader>
       <div>
         <Ul>
           {albums.map((album: Album, key) => {

@@ -24,8 +24,12 @@ const Title = style.p({
 });
 
 const AlbumListItem: React.FC<Props> = ({ album, history }) => {
+  const handleClickAlbum = () => {
+    history.push(`/detail/${album.id}`);
+  };
+
   return (
-    <List onClick={() => {}}>
+    <List onClick={handleClickAlbum}>
       <Img src={album.imageFile.path} alt={album.title} />
       <Title>{album.title}</Title>
     </List>
