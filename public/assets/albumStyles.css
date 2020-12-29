@@ -1,7 +1,6 @@
 body {
   text-align: center;
   background-image: url("./images/nasa2.jpg");
-  color: red;
   margin: 0;
 }
 
@@ -13,6 +12,9 @@ ul {
 a {
   color: white;
   text-decoration: none;
+}
+p {
+  color: #444;
 }
 a:visited {
   color: white;

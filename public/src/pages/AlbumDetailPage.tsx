@@ -8,8 +8,8 @@ import { NO_IMAGE_PATH } from "../constans";
 import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
 import { getSongs } from "../lib/getSongs";
-import Button from "../components/Button";
-import Modal from "../components/Modal";
+import Button from "../components/CustomButton";
+import Modal from "../components/CustomModal";
 
 interface Props extends RouteComponentProps<{}> {}
 
@@ -22,7 +22,7 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
     },
     id: "",
     publish_date: "",
-    title: "",
+    title: "Loading...",
     services: {
       AppleMusic: "",
       Spotify: "",
@@ -71,10 +71,6 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
       <p>{albumId}</p>
 
       <Link to="/">もどる</Link>
-
-      <Modal>
-        <Button handleClick={() => alert("clicked!")} message={"botann "} />
-      </Modal>
     </article>
   );
 };

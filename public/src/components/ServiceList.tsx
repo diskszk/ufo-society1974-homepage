@@ -20,13 +20,10 @@ const Ul = styled.ul({
   justifyContent: "space-around",
   flexWrap: "wrap",
   borderRadius: "4px",
-  // width: "100%",
-  // margin: "0 auto",
 });
 const LogoList = styled.li({
   paddingTop: "4px",
   height: "64px",
-  // margin: "auto 20px",
   width: "20%",
   cursor: "pointer",
   display: "flex",
@@ -35,6 +32,7 @@ const LogoList = styled.li({
 const LogoP = styled.p({
   margin: 0,
   fontSize: "8px",
+  color: "#eee",
 });
 
 const ServiceList: React.FC<Props> = ({ services }) => {

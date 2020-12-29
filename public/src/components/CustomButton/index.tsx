@@ -1,15 +1,15 @@
 import React from "react";
-import { CustomButton, CustomSpan } from "./style";
+import { CustomButton, CustomSpan } from "./styles";
 
 type Props = {
-  message: string;
+  label: string;
   handleClick: () => void;
 };
 
-const Button: React.FC<Props> = ({ message, handleClick }) => {
+const Button: React.FC<Props> = ({ label, handleClick }) => {
   return (
     <CustomButton onClick={handleClick}>
-      <CustomSpan>{message}</CustomSpan>
+      <CustomSpan>{label}</CustomSpan>
     </CustomButton>
   );
 };
