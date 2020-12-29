@@ -6,6 +6,7 @@ import { Album } from "../types";
 import { getSingleAlbum } from "../lib/getSingleAlbum";
 import { NO_IMAGE_PATH } from "../constans";
 import ServiceList from "../components/ServiceList";
+import SongListTable from "../components/SongListTable";
 
 interface Props extends RouteComponentProps<{}> {}
 
@@ -51,13 +52,13 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
       <PageHeader>{album.title}</PageHeader>
       <Container>
         <AlbumImage src={album.imageFile.path} alt={album.title} />
-        <Discription>{"discription"}</Discription>
         <ServiceList services={album.services} />
-        <p>songs</p>
-        <p>{albumId}</p>
-
-        <Link to="/">もどる</Link>
+        <Discription>{"discription"}</Discription>
       </Container>
+      <SongListTable />
+      <p>{albumId}</p>
+
+      <Link to="/">もどる</Link>
     </article>
   );
 };

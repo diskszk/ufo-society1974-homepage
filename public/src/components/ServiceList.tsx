@@ -20,58 +20,58 @@ const Ul = styled.ul({
   justifyContent: "space-around",
   flexWrap: "wrap",
   borderRadius: "4px",
+  // width: "100%",
+  // margin: "0 auto",
 });
 const LogoList = styled.li({
   paddingTop: "4px",
   height: "64px",
-  margin: "auto 20px",
+  // margin: "auto 20px",
+  width: "20%",
   cursor: "pointer",
   display: "flex",
   flexDirection: "column",
 });
 const LogoP = styled.p({
   margin: 0,
+  fontSize: "8px",
 });
 
 const ServiceList: React.FC<Props> = ({ services }) => {
   return (
     <Ul>
-      {services.iTunes && (
-        <LogoList>
-          <a href={services.iTunes} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faItunes} size="2x" />
-            <LogoP>iTunes</LogoP>
-          </a>
-        </LogoList>
-      )}
-      {services.AppleMusic && (
-        <LogoList>
-          <a
-            href={services.AppleMusic}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon icon={faApple} size="2x" />
-            <LogoP>Apple Music</LogoP>
-          </a>
-        </LogoList>
-      )}
-      {services.Spotify && (
-        <LogoList>
-          <a href={services.Spotify} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faSpotify} size="2x" />
-            <LogoP>Spotify</LogoP>
-          </a>
-        </LogoList>
-      )}
-      {services.Bandcamp && (
-        <LogoList>
-          <a href={services.Bandcamp} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faBandcamp} size="2x" />
-            <LogoP>BandCamp</LogoP>
-          </a>
-        </LogoList>
-      )}
+      {/* {services.iTunes && ( */}
+      <LogoList>
+        <a href={services.iTunes} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faItunes} size="2x" />
+          <LogoP>iTunes</LogoP>
+        </a>
+      </LogoList>
+      {/* )}
+      {services.AppleMusic && ( */}
+      <LogoList>
+        <a href={services.AppleMusic} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faApple} size="2x" />
+          <LogoP>Apple Music</LogoP>
+        </a>
+      </LogoList>
+      {/* )}
+      {services.Spotify && ( */}
+      <LogoList>
+        <a href={services.Spotify} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faSpotify} size="2x" />
+          <LogoP>Spotify</LogoP>
+        </a>
+      </LogoList>
+      {/* )}
+      {services.Bandcamp && ( */}
+      <LogoList>
+        <a href={services.Bandcamp} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faBandcamp} size="2x" />
+          <LogoP>BandCamp</LogoP>
+        </a>
+      </LogoList>
+      {/* )} */}
     </Ul>
   );
 };
