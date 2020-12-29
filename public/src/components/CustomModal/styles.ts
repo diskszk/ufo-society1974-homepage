@@ -21,7 +21,7 @@ export const Modal = style.div({
   marginBottom: "48px",
   width: "88%",
   padding: "16px",
-  backgroundColor: "#eee",
+  backgroundColor: "rgba(238, 238, 238, .9)",
   minHeight: "240px",
   borderRadius: "16px",
 });
@@ -33,6 +33,5 @@ export const Content = style.div({
 
 export const LyricNote = style.div({
   whiteSpace: "pre-wrap",
-  backgroundColor: "green",
   textAlign: "left",
 });

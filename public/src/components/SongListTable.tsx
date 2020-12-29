@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import {
   withStyles,
   Theme,
@@ -13,7 +14,9 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
+import style from "styled-components";
 import { Song } from "../types";
+import { openLyricNote } from "../store/ModalStatusReducer";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -39,7 +42,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
 
 const useStyles = makeStyles({
   tableContainer: {
-    width: "88%",
+    width: "80%",
     margin: "0 auto",
   },
   table: {},
@@ -48,12 +51,21 @@ const useStyles = makeStyles({
   },
 });
 
+const Anchor = style.a({
+  color: "#444",
+  cursor: "pointer",
+});
+
 type Props = {
   songs: Song[];
 };
 
 const SongListTable: React.FC<Props> = ({ songs }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const handleClickSong = (song: Song) => {
+    dispatch(openLyricNote(song));
+  };
 
   return (
     <TableContainer className={classes.tableContainer} component={Paper}>
@@ -69,7 +81,11 @@ const SongListTable: React.FC<Props> = ({ songs }) => {
               >
                 {song.id}
               </StyledTableCell>
-              <StyledTableCell>{song.title}</StyledTableCell>
+              <StyledTableCell>
+                <Anchor onClick={() => handleClickSong(song)}>
+                  {song.title}
+                </Anchor>
+              </StyledTableCell>
               <StyledTableCell>{song.story}</StyledTableCell>
             </StyledTableRow>
           ))}

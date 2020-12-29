@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { PageHeader, AlbumImage, Discription, Container } from "./styles";
@@ -8,12 +9,13 @@ import { NO_IMAGE_PATH } from "../constans";
 import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
 import { getSongs } from "../lib/getSongs";
-import Button from "../components/CustomButton";
-import Modal from "../components/CustomModal";
+import { startRequest } from "../store/LoadingStatusReducer";
+import { faileRequest, successRequest } from "../store/ModalStatusReducer";
 
 interface Props extends RouteComponentProps<{}> {}
 
 const AlbumDetailPage: React.FC<Props> = ({ history }) => {
+  const dispatch = useDispatch();
   const [album, setAlbum] = useState<Album>({
     discription: "",
     imageFile: {
@@ -36,28 +38,31 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
   const albumId = location.pathname.split("/")[2];
 
   const fetchAlbum = async () => {
-    try {
-      const fetchedAlbum: Album = await getSingleAlbum(albumId);
-      setAlbum(fetchedAlbum);
-    } catch (e) {
-      console.error(e);
-
-      //
-      history.push("/");
-    }
+    const fetchedAlbum: Album = await getSingleAlbum(albumId);
+    setAlbum(fetchedAlbum);
   };
   const fetchSongs = async () => {
+    const fetchedSongs: Song[] = await getSongs(albumId);
+    setSongs(fetchedSongs);
+  };
+  const fetchAll = async () => {
     try {
-      const fetchedSongs: Song[] = await getSongs(albumId);
-      setSongs(fetchedSongs);
-    } catch {
-      //
-      history.push("/");
+      dispatch(startRequest());
+      await Promise.all([fetchAlbum(), fetchSongs()]);
+      dispatch(successRequest());
+    } catch (e) {
+      console.error(e.message);
+
+      dispatch(
+        faileRequest(
+          "データの取得に失敗しました。\n通信環境をご確認の上再度お試しください。"
+        )
+      );
     }
   };
+
   useEffect(() => {
-    fetchAlbum();
-    fetchSongs();
+    fetchAll();
   }, [setAlbum, setSongs]);
   return (
     <article>

@@ -8,4 +8,21 @@ export const initialState: RootStore = {
       message: "",
     },
   },
+  modalStatus: {
+    isOpen: false,
+    modalType: "",
+    errorMessage: "",
+    song: {
+      id: "",
+      lyric: "",
+      songFile: {
+        filename: "",
+        path: "",
+      },
+      story: "",
+      title: "",
+      wordsRights: "",
+      musicRights: "",
+    },
+  },
 };

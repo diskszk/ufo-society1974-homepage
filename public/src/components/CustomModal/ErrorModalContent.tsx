@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Content } from "./styles";
 import CustomButton from "../CustomButton";
+import { useDispatch, useSelector } from "react-redux";
+import { ModalStatus, RootStore } from "../../types";
+import { closeModal } from "../../store/ModalStatusReducer";
+import { RouteComponentProps } from "react-router-dom";
+import { withRouter } from "react-router";
 
-const ErrorModalContent = () => {
+interface Props extends RouteComponentProps<{}> {}
+
+const ErrorModalContent: React.FC<Props> = ({ history }) => {
+  const dispatch = useDispatch();
+  const { errorMessage } = useSelector<RootStore, ModalStatus>(
+    (state) => state.modalStatus
+  );
+
+  const handleClickClose = useCallback(() => {
+    dispatch(closeModal());
+    history.goBack();
+  }, []);
+
   return (
     <Content>
-      <h3>{`fooエラーのためバツバツです。\n再度挑戦願う。`}</h3>
+      <h3>{errorMessage}</h3>
       <br />
-      <CustomButton
-        label="とじる"
-        handleClick={() => {
-          alert("閉じます");
-        }}
-      />
+      <CustomButton label="とじる" handleClick={handleClickClose} />
     </Content>
   );
 };
 
-export default ErrorModalContent;
+export default withRouter(ErrorModalContent);
