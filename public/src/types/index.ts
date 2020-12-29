@@ -33,6 +33,7 @@ export type Services = {
 // redux
 export type RootStore = {
   loadingStatus: LoadingStatus;
+  modalStatus: ModalStatus;
 };
 export type LoadingStatus = {
   isLoading: boolean;
@@ -40,4 +41,10 @@ export type LoadingStatus = {
     isError: boolean;
     message: string;
   };
+};
+export type ModalStatus = {
+  isOpen: boolean;
+  modalType: "LYRIC_NOTE" | "ERROR" | "LOADING" | "";
+  errorMessage: string;
+  song: Song;
 };
