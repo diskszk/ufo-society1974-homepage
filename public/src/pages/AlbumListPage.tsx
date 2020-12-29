@@ -10,7 +10,7 @@ import {
   faileRequest,
   startRequest,
   successRequest,
-} from "../store/LoadingStatusReducer";
+} from "../store/ModalStatusReducer";
 
 const Ul = style.ul`
   display: flex;
@@ -37,12 +37,14 @@ const AlbumListPage: React.FC = () => {
       const fetchedAlbums: Album[] = await getAlbums();
       setAlbums(fetchedAlbums);
 
-      throw new Error("error!!");
-
       dispatch(successRequest());
     } catch (e) {
       console.error(e);
-      dispatch(faileRequest(e.message));
+      dispatch(
+        faileRequest(
+          "アルバムの取得に失敗しました。\n通信環境をご確認の上再度お試しください。"
+        )
+      );
     }
   };
   useEffect(() => {

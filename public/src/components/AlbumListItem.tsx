@@ -12,7 +12,7 @@ const List = style.li`
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 8px auto;
 
   @media (min-width: ${MIN_WIDTH}) {
     margin: "0px 16px 32px 16px";

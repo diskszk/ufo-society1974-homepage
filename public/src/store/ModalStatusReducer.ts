@@ -37,7 +37,7 @@ export const closeModal = (): ModalStatusActionTypes => {
     type: CLOSE_MODAL,
   };
 };
-export const startRequesty = (): ModalStatusActionTypes => {
+export const startRequest = (): ModalStatusActionTypes => {
   return {
     type: START_REQUEST,
   };
@@ -67,7 +67,9 @@ export const ModalStatusReducer = (
     case CLOSE_MODAL:
       return {
         ...state,
-        ...initialState,
+        isOpen: false,
+        modalType: "",
+        errorMessage: "",
       };
     case START_REQUEST:
       return {
