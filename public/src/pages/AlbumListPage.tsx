@@ -5,6 +5,12 @@ import { getAlbums } from "../lib/getAlbums";
 import { Album } from "../types";
 import { MIN_WIDTH } from "../constans";
 import { PageHeader } from "./styles";
+import { useDispatch } from "react-redux";
+import {
+  faileRequest,
+  startRequest,
+  successRequest,
+} from "../store/LoadingStatusReducer";
 
 const Ul = style.ul`
   display: flex;
@@ -22,14 +28,21 @@ const Ul = style.ul`
 `;
 
 const AlbumListPage: React.FC = () => {
+  const dispatch = useDispatch();
   const [albums, setAlbums] = useState<Album[]>([]);
 
   const fetch = async () => {
     try {
+      dispatch(startRequest());
       const fetchedAlbums: Album[] = await getAlbums();
       setAlbums(fetchedAlbums);
+
+      throw new Error("error!!");
+
+      dispatch(successRequest());
     } catch (e) {
       console.error(e);
+      dispatch(faileRequest(e.message));
     }
   };
   useEffect(() => {

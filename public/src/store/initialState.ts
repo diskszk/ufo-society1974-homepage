@@ -9,7 +9,7 @@ export const initialState: RootStore = {
     },
   },
   modalStatus: {
-    isOpen: true,
+    isOpen: false,
     modalType: "",
     errorMessage: "",
     song: {

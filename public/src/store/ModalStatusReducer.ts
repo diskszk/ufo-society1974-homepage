@@ -78,7 +78,8 @@ export const ModalStatusReducer = (
     case SUCCESS_REQUEST:
       return {
         ...state,
-        ...initialState,
+        isOpen: false,
+        modalType: "",
       };
     case FAIL_REQUEST:
       return {

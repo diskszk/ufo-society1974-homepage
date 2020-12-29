@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { PageHeader, AlbumImage, Discription, Container } from "./styles";
@@ -10,10 +11,13 @@ import SongListTable from "../components/SongListTable";
 import { getSongs } from "../lib/getSongs";
 import Button from "../components/CustomButton";
 import Modal from "../components/CustomModal";
+import { startRequest } from "../store/LoadingStatusReducer";
+import { faileRequest, successRequest } from "../store/ModalStatusReducer";
 
 interface Props extends RouteComponentProps<{}> {}
 
 const AlbumDetailPage: React.FC<Props> = ({ history }) => {
+  const dispatch = useDispatch();
   const [album, setAlbum] = useState<Album>({
     discription: "",
     imageFile: {
@@ -37,12 +41,15 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
 
   const fetchAlbum = async () => {
     try {
+      dispatch(startRequest());
       const fetchedAlbum: Album = await getSingleAlbum(albumId);
       setAlbum(fetchedAlbum);
+
+      dispatch(successRequest());
     } catch (e) {
       console.error(e);
+      dispatch(faileRequest(e.message));
 
-      //
       history.push("/");
     }
   };
@@ -50,11 +57,15 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
     try {
       const fetchedSongs: Song[] = await getSongs(albumId);
       setSongs(fetchedSongs);
-    } catch {
-      //
+    } catch (e) {
+      console.error(e);
+      dispatch(faileRequest(e.message));
+
       history.push("/");
     }
   };
+
+  // 並行処理したい...Promise.all?
   useEffect(() => {
     fetchAlbum();
     fetchSongs();
