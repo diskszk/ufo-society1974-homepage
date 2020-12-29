@@ -1,4 +1,3 @@
-import { NO_IMAGE_PATH } from "../constans";
 import { db } from "../firebase";
 import { Album } from "../types";
 
@@ -8,15 +7,14 @@ export const getAlbums = async (): Promise<Album[]> => {
     .orderBy("publish_date", "desc");
 
   const snapshots = await albumsRef.get();
+
   const albums: Album[] = snapshots.docs.map((snapshot) => {
     const doc = snapshot.data();
 
-    let imagePath = NO_IMAGE_PATH;
+    let imagePath = "../assets/images/no_image.jpg";
     if (doc.imageFile.filename !== "") {
       imagePath = doc.imageFile.path;
     }
-
-    console.log(`album image: ${doc.imageFile.filename}`);
 
     return {
       discription: doc.discription,
@@ -24,7 +22,7 @@ export const getAlbums = async (): Promise<Album[]> => {
         filename: doc.imageFile.filename,
         path: imagePath,
       },
-      id: doc.id,
+      id: snapshot.id,
       publish_date: doc.publish_date,
       title: doc.title,
       services: { ...doc.services },

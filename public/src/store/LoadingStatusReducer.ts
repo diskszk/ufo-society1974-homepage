@@ -1,14 +1,5 @@
-import { LoadingStatus, RootStore } from "../types";
-
-const initialState: RootStore = {
-  loadingStatus: {
-    isLoading: false,
-    error: {
-      isError: false,
-      message: "",
-    },
-  },
-};
+import { LoadingStatus } from "../types";
+import { initialState } from "./initialState";
 
 const START_REQUEST = "START_REQUEST",
   SUCCESS_REQUEST = "SUCCESS_REQUEST",
