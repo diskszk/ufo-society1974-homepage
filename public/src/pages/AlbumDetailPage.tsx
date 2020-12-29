@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { PageHeader, AlbumImage, Discription, Container } from "./styles";
-import { Album } from "../types";
+import { Album, Song } from "../types";
 import { getSingleAlbum } from "../lib/getSingleAlbum";
 import { NO_IMAGE_PATH } from "../constans";
 import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
+import { getSongs } from "../lib/getSongs";
 
 interface Props extends RouteComponentProps<{}> {}
 
@@ -27,26 +28,35 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
       Bandcamp: "",
     },
   });
+  const [songs, setSongs] = useState<Song[]>([]);
 
   const location = useLocation();
   const albumId = location.pathname.split("/")[2];
 
-  const fetch = async () => {
+  const fetchAlbum = async () => {
     try {
       const fetchedAlbum: Album = await getSingleAlbum(albumId);
       setAlbum(fetchedAlbum);
-      console.dir(fetchedAlbum);
     } catch (e) {
       console.error(e);
 
       //
       history.push("/");
-    } finally {
+    }
+  };
+  const fetchSongs = async () => {
+    try {
+      const fetchedSongs: Song[] = await getSongs(albumId);
+      setSongs(fetchedSongs);
+    } catch {
+      //
+      history.push("/");
     }
   };
   useEffect(() => {
-    fetch();
-  }, [setAlbum]);
+    fetchAlbum();
+    fetchSongs();
+  }, [setAlbum, setSongs]);
   return (
     <article>
       <PageHeader>{album.title}</PageHeader>
@@ -55,7 +65,7 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
         <ServiceList services={album.services} />
         <Discription>{"discription"}</Discription>
       </Container>
-      <SongListTable />
+      {songs.length > 0 && <SongListTable songs={songs} />}
       <p>{albumId}</p>
 
       <Link to="/">もどる</Link>
