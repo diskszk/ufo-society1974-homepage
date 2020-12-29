@@ -8,6 +8,8 @@ import { NO_IMAGE_PATH } from "../constans";
 import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
 import { getSongs } from "../lib/getSongs";
+import Button from "../components/Button";
+import Modal from "../components/Modal";
 
 interface Props extends RouteComponentProps<{}> {}
 
@@ -69,6 +71,10 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
       <p>{albumId}</p>
 
       <Link to="/">もどる</Link>
+
+      <Modal>
+        <Button handleClick={() => alert("clicked!")} message={"botann "} />
+      </Modal>
     </article>
   );
 };
