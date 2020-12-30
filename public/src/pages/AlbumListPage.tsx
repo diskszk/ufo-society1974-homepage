@@ -61,6 +61,7 @@ const AlbumListPage: React.FC = () => {
           })}
         </Ul>
       </div>
+      <br />
     </article>
   );
 };

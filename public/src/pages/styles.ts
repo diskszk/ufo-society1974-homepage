@@ -23,5 +23,8 @@ export const AlbumImage = style.img`
 `;
 
 export const Discription = style.p({
+  backgroundColor: "rgba(238, 238, 238, .9)",
   textAlign: "left",
+  padding: 8,
+  borderRadius: "4px",
 });

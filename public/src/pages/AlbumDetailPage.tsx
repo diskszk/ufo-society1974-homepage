@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PageHeader, AlbumImage, Discription, Container } from "./styles";
 import { Album, Song } from "../types";
 import { getSingleAlbum } from "../lib/getSingleAlbum";
@@ -12,9 +12,7 @@ import { getSongs } from "../lib/getSongs";
 import { startRequest } from "../store/LoadingStatusReducer";
 import { faileRequest, successRequest } from "../store/ModalStatusReducer";
 
-interface Props extends RouteComponentProps<{}> {}
-
-const AlbumDetailPage: React.FC<Props> = ({ history }) => {
+const AlbumDetailPage: React.FC = () => {
   const dispatch = useDispatch();
   const [album, setAlbum] = useState<Album>({
     discription: "",
@@ -65,16 +63,18 @@ const AlbumDetailPage: React.FC<Props> = ({ history }) => {
     fetchAll();
   }, [setAlbum, setSongs]);
   return (
-    <article>
+    <article className="space-bottom">
       <PageHeader>{album.title}</PageHeader>
       <Container>
         <AlbumImage src={album.imageFile.path} alt={album.title} />
         <ServiceList services={album.services} />
-        <Discription>{"discription"}</Discription>
+        {album.discription !== "" && (
+          <Discription>{album.discription}</Discription>
+        )}
       </Container>
-      {songs.length > 0 && <SongListTable songs={songs} />}
-      <p>{albumId}</p>
 
+      {songs.length > 0 && <SongListTable songs={songs} />}
+      <br />
       <Link to="/">もどる</Link>
     </article>
   );
