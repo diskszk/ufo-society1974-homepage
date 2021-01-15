@@ -4,7 +4,7 @@ import { Album } from "../types";
 export const getAlbums = async (): Promise<Album[]> => {
   const albumsRef = db
     .collection("published_albums")
-    .orderBy("publish_date", "desc");
+    .orderBy("publishedDate", "desc");
 
   const snapshots = await albumsRef.get();
 
@@ -17,15 +17,15 @@ export const getAlbums = async (): Promise<Album[]> => {
     }
 
     return {
-      discription: doc.discription,
+      description: doc.description,
       imageFile: {
         filename: doc.imageFile.filename,
         path: imagePath,
       },
       id: snapshot.id,
-      publish_date: doc.publish_date,
+      publishedDate: doc.publishedDate,
       title: doc.title,
-      services: { ...doc.services },
+      publishPlatform: { ...doc.publishPlatform },
     };
   });
 

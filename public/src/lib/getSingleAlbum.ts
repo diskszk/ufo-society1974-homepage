@@ -1,6 +1,5 @@
 import { db } from "../firebase";
 import { Album } from "../types";
-import {} from "../../assets/images/no_image.jpg";
 
 export const getSingleAlbum = async (albumId: string): Promise<Album> => {
   const albumRef = db.collection("published_albums").doc(albumId);
@@ -19,18 +18,16 @@ export const getSingleAlbum = async (albumId: string): Promise<Album> => {
   }
 
   const album: Album = {
-    discription: doc.discription,
+    description: doc.description,
     imageFile: {
       filename: doc.imageFile.filename,
       path: imagePath,
     },
     id: snapshot.id,
-    publish_date: doc.publish_date,
+    publishedDate: doc.publishedDate,
     title: doc.title,
-    services: { ...doc.services },
+    publishPlatform: { ...doc.publishPlatform },
   };
-  console.dir(album);
-  console.log(typeof album);
 
   return album;
 };

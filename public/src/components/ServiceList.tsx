@@ -1,5 +1,5 @@
 import React from "react";
-import { Services } from "../types";
+import { PublishPlatform } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faApple,
@@ -10,7 +10,7 @@ import {
 import styled from "styled-components";
 
 type Props = {
-  services: Services;
+  services: PublishPlatform;
 };
 
 const Ul = styled.ul({

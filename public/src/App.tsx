@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
 import Routes from "./Routes";
 import styled from "styled-components";
 import ModalWrapper from "./components/CustomModal";

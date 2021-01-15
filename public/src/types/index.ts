@@ -4,13 +4,13 @@ export type File = {
 };
 
 export type Album = {
-  discription: string;
+  description: string;
   imageFile: File;
   id: string; // random
-  publish_date: string; // YYYY-MM-DD
+  publishedDate: string; // YYYY-MM-DD
   songs?: Song[];
   title: string;
-  services?: Services;
+  publishPlatform?: PublishPlatform;
 };
 
 export type Song = {
@@ -23,7 +23,7 @@ export type Song = {
   musicRights: string;
 };
 
-export type Services = {
+export type PublishPlatform = {
   AppleMusic: string;
   Spotify: string;
   iTunes: string;

@@ -15,15 +15,15 @@ import { faileRequest, successRequest } from "../store/ModalStatusReducer";
 const AlbumDetailPage: React.FC = () => {
   const dispatch = useDispatch();
   const [album, setAlbum] = useState<Album>({
-    discription: "",
+    description: "",
     imageFile: {
       filename: "",
       path: NO_IMAGE_PATH,
     },
     id: "",
-    publish_date: "",
+    publishedDate: "",
     title: "Loading...",
-    services: {
+    publishPlatform: {
       AppleMusic: "",
       Spotify: "",
       iTunes: "",
@@ -67,9 +67,9 @@ const AlbumDetailPage: React.FC = () => {
       <PageHeader>{album.title}</PageHeader>
       <Container>
         <AlbumImage src={album.imageFile.path} alt={album.title} />
-        <ServiceList services={album.services} />
-        {album.discription !== "" && (
-          <Discription>{album.discription}</Discription>
+        <ServiceList services={album.publishPlatform} />
+        {album.description !== "" && (
+          <Discription>{album.description}</Discription>
         )}
       </Container>
 

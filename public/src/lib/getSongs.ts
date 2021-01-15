@@ -13,10 +13,10 @@ export const getSongs = async (albumId: string): Promise<Song[]> => {
   const songs: Song[] = snapshots.docs.map((snapshot) => {
     const doc = snapshot.data();
 
-    const shapeedId = Number(doc.id).toString();
+    const shapedId = Number(doc.id).toString();
 
     const song: Song = {
-      id: shapeedId,
+      id: shapedId,
       lyric: doc.lyric,
       songFile: {
         filename: doc.songFile.filename,
