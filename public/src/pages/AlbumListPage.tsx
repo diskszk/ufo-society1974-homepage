@@ -3,13 +3,13 @@ import AlbumListItem from "../components/AlbumListItem";
 import style from "styled-components";
 import { getAlbums } from "../lib/getAlbums";
 import { Album } from "../types";
-import { MIN_WIDTH } from "../constans";
+import { MIN_WIDTH } from "../constants";
 import { PageHeader } from "./styles";
 import { useDispatch } from "react-redux";
 import {
-  faileRequest,
-  startRequest,
-  successRequest,
+  createFailRequestAction,
+  createStartRequestAction,
+  createSuccessRequestAction,
 } from "../store/ModalStatusReducer";
 
 const Ul = style.ul`
@@ -33,15 +33,14 @@ const AlbumListPage: React.FC = () => {
 
   const fetch = async () => {
     try {
-      dispatch(startRequest());
+      dispatch(createStartRequestAction());
       const fetchedAlbums: Album[] = await getAlbums();
       setAlbums(fetchedAlbums);
 
-      dispatch(successRequest());
-    } catch (e) {
-      console.error(e);
+      dispatch(createSuccessRequestAction());
+    } catch {
       dispatch(
-        faileRequest(
+        createFailRequestAction(
           "アルバムの取得に失敗しました。\n通信環境をご確認の上再度お試しください。"
         )
       );

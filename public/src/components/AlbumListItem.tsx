@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router-dom";
 import { withRouter } from "react-router";
 import { Album } from "../types";
 import style from "styled-components";
-import { MIN_WIDTH } from "../constans";
+import { MIN_WIDTH } from "../constants";
 
 interface Props extends RouteComponentProps<{}> {
   album: Album;

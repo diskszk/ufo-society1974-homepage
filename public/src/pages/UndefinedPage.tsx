@@ -8,10 +8,6 @@ const Message = style.p({
   color: "#eee",
 });
 const UndefinedPage: React.FC = () => {
-  const currentPath = location.pathname;
-
-  console.log(currentPath);
-
   return (
     <div>
       <H1>404 Page Not Found</H1>

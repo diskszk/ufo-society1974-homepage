@@ -3,9 +3,9 @@ import { Content, LyricNote } from "./styles";
 import CustomButton from "../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, ModalStatus } from "../../types";
-import { closeModal } from "../../store/ModalStatusReducer";
+import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
 import styled from "styled-components";
-import { MIN_WIDTH } from "../../constans";
+import { MIN_WIDTH } from "../../constants";
 
 const CustomH3 = styled.h3({
   marginBottom: 20,
@@ -28,12 +28,13 @@ const LyricNoteContent: React.FC = () => {
   );
 
   const handleClose = useCallback(() => {
-    dispatch(closeModal());
+    dispatch(CreateCloseModalAction());
   }, []);
   return (
     <Content>
       <CustomH3>{song.title}</CustomH3>
       {song.songFile.filename !== "" && (
+        // 要テスト: storageの楽曲ファイルだけ削除されている場合
         <>
           <audio controls controlsList="nodownload" src={song.songFile.path} />
           <Spacer />

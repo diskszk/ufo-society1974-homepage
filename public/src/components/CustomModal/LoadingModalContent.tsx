@@ -2,13 +2,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Modal, Content } from "./styles";
-import { closeModal } from "../../store/ModalStatusReducer";
+import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
 
 const LoadingModalContent = () => {
   const dispatch = useDispatch();
 
   const handleButton = () => {
-    dispatch(closeModal());
+    dispatch(CreateCloseModalAction());
   };
 
   return (

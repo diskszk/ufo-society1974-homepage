@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.div({
-});
+const Container = styled.div({});
 
 type Props = {
-  discription: string;
+  description: string;
 };
 
-const Discription: React.FC<Props> = ({ discription }) => {
+const Description: React.FC<Props> = ({ description }) => {
   return (
     <Container>
-      <p>{discription}</p>
+      <p>{description}</p>
     </Container>
   );
 };
 
-export default Discription;
+export default Description;

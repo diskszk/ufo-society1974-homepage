@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { PageHeader, AlbumImage, Discription, Container } from "./styles";
+import { PageHeader, AlbumImage, Description, Container } from "./styles";
 import { Album, Song } from "../types";
 import { getSingleAlbum } from "../lib/getSingleAlbum";
-import { NO_IMAGE_PATH } from "../constans";
+import { NO_IMAGE_PATH } from "../constants";
 import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
 import { getSongs } from "../lib/getSongs";
-import { startRequest } from "../store/LoadingStatusReducer";
-import { faileRequest, successRequest } from "../store/ModalStatusReducer";
+import { createStartRequestAction } from "../store/LoadingStatusReducer";
+import { createFailRequestAction, createSuccessRequestAction } from "../store/ModalStatusReducer";
 
 const AlbumDetailPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -45,14 +45,12 @@ const AlbumDetailPage: React.FC = () => {
   };
   const fetchAll = async () => {
     try {
-      dispatch(startRequest());
+      dispatch(createStartRequestAction());
       await Promise.all([fetchAlbum(), fetchSongs()]);
-      dispatch(successRequest());
-    } catch (e) {
-      console.error(e.message);
-
+      dispatch(createSuccessRequestAction());
+    } catch {
       dispatch(
-        faileRequest(
+        createFailRequestAction(
           "データの取得に失敗しました。\n通信環境をご確認の上再度お試しください。"
         )
       );
@@ -69,7 +67,7 @@ const AlbumDetailPage: React.FC = () => {
         <AlbumImage src={album.imageFile.path} alt={album.title} />
         <ServiceList services={album.publishPlatform} />
         {album.description !== "" && (
-          <Discription>{album.description}</Discription>
+          <Description>{album.description}</Description>
         )}
       </Container>
 

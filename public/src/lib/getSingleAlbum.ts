@@ -7,11 +7,6 @@ export const getSingleAlbum = async (albumId: string): Promise<Album> => {
   const snapshot = await albumRef.get();
   const doc = snapshot.data();
 
-  console.dir(doc);
-  console.log(albumId);
-
-  console.log(snapshot.id);
-
   let imagePath = "../assets/images/no_image.jpg";
   if (doc.imageFile.filename !== "") {
     imagePath = doc.imageFile.path;

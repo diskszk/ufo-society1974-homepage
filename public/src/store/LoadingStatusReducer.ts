@@ -26,17 +26,17 @@ type LoadingStatusActionTypes =
   | FailRequestAction
   | ClearMessageAction;
 
-export const startRequest = (): LoadingStatusActionTypes => {
+export const createStartRequestAction = (): LoadingStatusActionTypes => {
   return {
     type: START_REQUEST,
   };
 };
-export const successRequest = (): LoadingStatusActionTypes => {
+export const CreateSuccessRequestAction = (): LoadingStatusActionTypes => {
   return {
     type: SUCCESS_REQUEST,
   };
 };
-export const faileRequest = (
+export const createFailRequestAction = (
   state: LoadingStatus
 ): LoadingStatusActionTypes => {
   return {
@@ -46,7 +46,7 @@ export const faileRequest = (
     },
   };
 };
-export const clearMessage = (): LoadingStatusActionTypes => {
+export const createClearMessageAction = (): LoadingStatusActionTypes => {
   return {
     type: CLEAR_MESSAGE,
   };

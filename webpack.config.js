@@ -1,6 +1,8 @@
 const path = require("path");
 const PUBLIC_DIR = path.resolve(__dirname, "public");
 
+
+
 module.exports = {
   mode: "development",
 

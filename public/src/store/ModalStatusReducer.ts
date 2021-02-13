@@ -32,22 +32,22 @@ type ModalStatusActionTypes =
   | FailRequestAction
   | OpenLyricNoteAction;
 
-export const closeModal = (): ModalStatusActionTypes => {
+export const CreateCloseModalAction = (): ModalStatusActionTypes => {
   return {
     type: CLOSE_MODAL,
   };
 };
-export const startRequest = (): ModalStatusActionTypes => {
+export const createStartRequestAction = (): ModalStatusActionTypes => {
   return {
     type: START_REQUEST,
   };
 };
-export const successRequest = (): ModalStatusActionTypes => {
+export const createSuccessRequestAction = (): ModalStatusActionTypes => {
   return {
     type: SUCCESS_REQUEST,
   };
 };
-export const faileRequest = (errorMessage: string): ModalStatusActionTypes => {
+export const createFailRequestAction = (errorMessage: string): ModalStatusActionTypes => {
   return {
     type: FAIL_REQUEST,
     payload: errorMessage,

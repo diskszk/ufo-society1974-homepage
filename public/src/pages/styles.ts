@@ -1,5 +1,5 @@
 import style from "styled-components";
-import { MIN_WIDTH } from "../constans";
+import { MIN_WIDTH } from "../constants";
 
 export const PageHeader = style.h1({
   fontSize: "2em",
@@ -22,7 +22,7 @@ export const AlbumImage = style.img`
   }
 `;
 
-export const Discription = style.p({
+export const Description = style.p({
   backgroundColor: "rgba(238, 238, 238, .9)",
   textAlign: "left",
   padding: 8,

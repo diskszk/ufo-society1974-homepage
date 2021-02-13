@@ -18,17 +18,19 @@
       <marquee>UFO society のホームページ</marquee>
     </h1>
 
-    <h2>
-      <tabele width="230">
-        <div class="access-counter">
+    <div width="230">
+      <div class="access-counter">
+        <h2>
           あなたは
           <span id="accessCounter" class="access-counter-number"></span>
           人目の訪問者です<br />
           キリ番踏み逃げ厳禁
-        </div>
+        </h2>
+      </div>
+      <h2>
         <marquee behavior="alternate">ゆっくりしていってね！</marquee>
-      </tabele>
-    </h2>
+      </h2>
+    </div>
 
     <div class="welcome">
       <img src="./assets/images/top.jpg" alt="welcome!!" />
@@ -43,7 +45,7 @@
         </tr>
         <tr>
           <th><a href="./albums.html">楽曲の記録</a></th>
-          <td>UFO societyの歌詞を保護</td>
+          <td>UFO societyの楽曲を保護</td>
         </tr>
         <tr>
           <th><a href="./link.html">リンク集</a></th>
@@ -77,7 +79,7 @@
     <!-- access counter -->
     <script src="/__/firebase/7.15.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
-    <script src="./access/config.js"></script>
-    <script src=" ./access/access.js"></script>
+    <script src="./scripts/config.js"></script>
+    <script src=" ./scripts/access.js"></script>
   </body>
 </html>

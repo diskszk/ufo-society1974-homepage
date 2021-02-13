@@ -180,3 +180,20 @@ table {
     animation: scroll 100s linear 0.5s infinite;
   }
 }
+
+.td-link {
+  width: 33%;
+}
+.td-disc {
+  width: 66%;
+  text-align: left;
+}
+
+.replay-button {
+  position: relative;
+  bottom: -220px;
+}
+
+button {
+  cursor: pointer;
+}
