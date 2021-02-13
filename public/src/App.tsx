@@ -14,15 +14,12 @@ const App: React.FC<{}> = () => {
     (state) => state.modalStatus
   );
 
-  // const msg = process.env.Apple;
-
   return (
     <>
       {/* モーダル */}
       {modalStatus.isOpen && <ModalWrapper />}
       <Header>
         <a href="/index.html">トップページ</a>
-        <p>msg</p>
       </Header>
       <main>
         <Routes />
