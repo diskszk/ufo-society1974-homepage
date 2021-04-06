@@ -11,7 +11,7 @@ export const getAlbums = async (): Promise<Album[]> => {
   const albums: Album[] = snapshots.docs.map((snapshot) => {
     const doc = snapshot.data();
 
-    let imagePath = "../assets/images/no_image.jpg";
+    let imagePath = "../../assets/images/no_image.jpg";
     if (doc.imageFile.filename !== "") {
       imagePath = doc.imageFile.path;
     }
