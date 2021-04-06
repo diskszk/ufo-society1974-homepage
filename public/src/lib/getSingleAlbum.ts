@@ -1,3 +1,4 @@
+import { NO_IMAGE_PATH } from "../constants";
 import { db } from "../firebase";
 import { Album } from "../types";
 
@@ -7,7 +8,8 @@ export const getSingleAlbum = async (albumId: string): Promise<Album> => {
   const snapshot = await albumRef.get();
   const doc = snapshot.data();
 
-  let imagePath = "../assets/images/no_image.jpg";
+  let imagePath = NO_IMAGE_PATH;
+  // let imagePath = "../assets/images/no_image.jpg";
   if (doc.imageFile.filename !== "") {
     imagePath = doc.imageFile.path;
   }

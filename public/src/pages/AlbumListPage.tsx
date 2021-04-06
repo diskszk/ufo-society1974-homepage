@@ -18,7 +18,6 @@ const Ul = style.ul`
   width: 75%;
   margin: 0 auto;
 
-  // PC
   @media (min-width: ${MIN_WIDTH}) {
     flex-direction: row;
     justify-content: space-around;
