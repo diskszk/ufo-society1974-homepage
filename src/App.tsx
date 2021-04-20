@@ -19,7 +19,8 @@ const App: React.FC<{}> = () => {
       {/* モーダル */}
       {modalStatus.isOpen && <ModalWrapper />}
       <Header>
-        <a href="/index.html">トップページ</a>
+        {/* <a href="/index.html">トップページ</a> */}
+        <a href="https://diskszk.github.io/ufo-society1974/">トップページ</a>
       </Header>
       <main>
         <Routes />
