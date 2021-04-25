@@ -3,7 +3,6 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
-// TODO 環境変数にしまう
 const firebaseConfig = {
   apiKey: "AIzaSyBKlUfzrdhVw52YHmMCu6ENh89o45s-RMk",
   authDomain: "ufo-society-1974.firebaseapp.com",
