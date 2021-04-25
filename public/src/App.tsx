@@ -14,13 +14,17 @@ const App: React.FC<{}> = () => {
     (state) => state.modalStatus
   );
 
+  const topPageUrl =
+    process.env.NODE_ENV !== "development"
+      ? "https://diskszk.github.io/ufo-society1974/"
+      : "/index.html";
+
   return (
     <>
       {/* モーダル */}
       {modalStatus.isOpen && <ModalWrapper />}
       <Header>
-        {/* <a href="/index.html">トップページ</a> */}
-        <a href="https://diskszk.github.io/ufo-society1974/">トップページ</a>
+        <a href={topPageUrl}>トップページ</a>
       </Header>
       <main>
         <Routes />
