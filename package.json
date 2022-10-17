@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "/public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=development",
-    "watch": "webpack --mode=development -w",
-    "deploy": "npm run build && gh-pages -d public"
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "deploy": "build && gh-pages -d public"
   },
   "repository": {
     "type": "git",
