@@ -1,8 +1,6 @@
 const path = require("path");
 const PUBLIC_DIR = path.resolve(__dirname, "public");
 
-
-
 module.exports = {
   mode: "development",
 
@@ -23,4 +21,9 @@ module.exports = {
     extensions: [".ts", ".tsx", ".js", ".json"],
   },
   target: ["web", "es5"],
+  devServer: {
+    hot: true,
+    host: "0.0.0.0",
+    port: 3000,
+  },
 };
