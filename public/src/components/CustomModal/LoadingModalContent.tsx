@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { CircularProgress } from "@mui/material";
 import { Modal, Content } from "./styles";
 import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
 
