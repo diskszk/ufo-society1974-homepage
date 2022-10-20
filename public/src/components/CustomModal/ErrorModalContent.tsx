@@ -4,20 +4,20 @@ import CustomButton from "../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalStatus, RootStore } from "../../types";
 import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
-import { RouteComponentProps } from "react-router-dom";
-import { withRouter } from "react-router";
+import { useNavigate } from "react-router-dom";
 
-interface Props extends RouteComponentProps<{}> {}
-
-const ErrorModalContent: React.FC<Props> = ({ history }) => {
+const ErrorModalContent: React.FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { errorMessage } = useSelector<RootStore, ModalStatus>(
     (state) => state.modalStatus
   );
 
   const handleClickClose = useCallback(() => {
     dispatch(CreateCloseModalAction());
-    history.goBack();
+
+    // TODO: router使う必要なさそう
+    navigate(-1);
   }, []);
 
   return (
@@ -29,4 +29,4 @@ const ErrorModalContent: React.FC<Props> = ({ history }) => {
   );
 };
 
-export default withRouter(ErrorModalContent);
+export default ErrorModalContent;

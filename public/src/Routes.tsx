@@ -1,15 +1,17 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { AlbumListPage, AlbumDetailPage, UndefinedPage } from "./pages";
 
-const Routes = () => {
+const Router = () => {
   return (
-    <Switch>
-      <Route exact path={"/"} component={AlbumListPage} />
-      <Route exact path={`/detail/:id`} component={AlbumDetailPage} />
-      <Route component={UndefinedPage} />
-    </Switch>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<AlbumListPage />} />
+        <Route path={`/detail/:id`} element={<AlbumDetailPage />} />
+        <Route element={<UndefinedPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
-export default Routes;
+export default Router;

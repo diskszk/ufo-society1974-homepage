@@ -10,7 +10,10 @@ import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
 import { getSongs } from "../lib/getSongs";
 import { createStartRequestAction } from "../store/LoadingStatusReducer";
-import { createFailRequestAction, createSuccessRequestAction } from "../store/ModalStatusReducer";
+import {
+  createFailRequestAction,
+  createSuccessRequestAction,
+} from "../store/ModalStatusReducer";
 
 const AlbumDetailPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -65,7 +68,9 @@ const AlbumDetailPage: React.FC = () => {
       <PageHeader>{album.title}</PageHeader>
       <Container>
         <AlbumImage src={album.imageFile.path} alt={album.title} />
-        <ServiceList services={album.publishPlatform} />
+        {album.publishPlatform && (
+          <ServiceList services={album.publishPlatform} />
+        )}
         {album.description !== "" && (
           <Description>{album.description}</Description>
         )}

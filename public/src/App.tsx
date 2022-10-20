@@ -1,5 +1,5 @@
 import React from "react";
-import Routes from "./Routes";
+import Router from "./Routes";
 import styled from "styled-components";
 import ModalWrapper from "./components/CustomModal";
 import { useSelector } from "react-redux";
@@ -27,7 +27,7 @@ const App: React.FC<{}> = () => {
         <a href={topPageUrl}>トップページ</a>
       </Header>
       <main>
-        <Routes />
+        <Router />
       </main>
     </>
   );
