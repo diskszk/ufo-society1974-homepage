@@ -6,7 +6,7 @@
     "build": "webpack",
     "build:check": "tsc --noEmit",
     "dev": "webpack-dev-server",
-    "deploy": "build && gh-pages -d public"
+    "deploy": "yarn build && gh-pages -d public"
   },
   "repository": {
     "type": "git",

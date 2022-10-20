@@ -1,36 +1,14 @@
 import React from "react";
-import Router from "./Routes";
-import styled from "styled-components";
-import ModalWrapper from "./components/CustomModal";
-import { useSelector } from "react-redux";
-import { ModalStatus, RootStore } from "./types";
+import { Router } from "./Router";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
 
-const Header = styled.header({
-  marginTop: "16px",
-});
-
-const App: React.FC<{}> = () => {
-  const modalStatus = useSelector<RootStore, ModalStatus>(
-    (state) => state.modalStatus
-  );
-
-  const topPageUrl =
-    process.env.NODE_ENV !== "development"
-      ? "https://diskszk.github.io/ufo-society1974/"
-      : "/index.html";
-
+export const App: React.FC = () => {
   return (
     <>
-      {/* モーダル */}
-      {modalStatus.isOpen && <ModalWrapper />}
-      <Header>
-        <a href={topPageUrl}>トップページ</a>
-      </Header>
-      <main>
+      <Provider store={store}>
         <Router />
-      </main>
+      </Provider>
     </>
   );
 };
-
-export default App;
