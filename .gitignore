@@ -67,5 +67,4 @@ node_modules/
 index.min.js.LICENSE.txt
 
 public/dist/
-public/build/
 firebase-debug.log
