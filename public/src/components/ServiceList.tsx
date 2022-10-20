@@ -8,6 +8,7 @@ import {
   faBandcamp,
 } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 type Props = {
   services: PublishPlatform;
@@ -41,7 +42,7 @@ const ServiceList: React.FC<Props> = ({ services }) => {
       {services.iTunes && (
         <LogoList>
           <a href={services.iTunes} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faItunes} size="2x" />
+            <FontAwesomeIcon icon={faItunes as IconDefinition} size="2x" />
             <LogoP>iTunes</LogoP>
           </a>
         </LogoList>
@@ -53,7 +54,7 @@ const ServiceList: React.FC<Props> = ({ services }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FontAwesomeIcon icon={faApple} size="2x" />
+            <FontAwesomeIcon icon={faApple as IconDefinition} size="2x" />
             <LogoP>Apple Music</LogoP>
           </a>
         </LogoList>
@@ -61,7 +62,7 @@ const ServiceList: React.FC<Props> = ({ services }) => {
       {services.Spotify && (
         <LogoList>
           <a href={services.Spotify} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faSpotify} size="2x" />
+            <FontAwesomeIcon icon={faSpotify as IconDefinition} size="2x" />
             <LogoP>Spotify</LogoP>
           </a>
         </LogoList>
@@ -69,7 +70,7 @@ const ServiceList: React.FC<Props> = ({ services }) => {
       {services.Bandcamp && (
         <LogoList>
           <a href={services.Bandcamp} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faBandcamp} size="2x" />
+            <FontAwesomeIcon icon={faBandcamp as IconDefinition} size="2x" />
             <LogoP>BandCamp</LogoP>
           </a>
         </LogoList>
