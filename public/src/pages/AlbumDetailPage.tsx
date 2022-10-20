@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PageHeader, AlbumImage, Description, Container } from "./styles";
 import { Album, Song } from "../types";
 import { getSingleAlbum } from "../lib/getSingleAlbum";
