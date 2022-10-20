@@ -1,11 +1,10 @@
 import React from "react";
-import { RouteComponentProps } from "react-router-dom";
-import { withRouter } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Album } from "../types";
 import style from "styled-components";
 import { MIN_WIDTH } from "../constants";
 
-interface Props extends RouteComponentProps<{}> {
+interface Props {
   album: Album;
 }
 const List = style.li`
@@ -29,9 +28,10 @@ const Title = style.p({
   margin: 0,
 });
 
-const AlbumListItem: React.FC<Props> = ({ album, history }) => {
+const AlbumListItem: React.FC<Props> = ({ album }) => {
+  const navigate = useNavigate();
   const handleClickAlbum = () => {
-    history.push(`/detail/${album.id}`);
+    navigate(`/detail/${album.id}`);
   };
 
   return (
@@ -42,4 +42,4 @@ const AlbumListItem: React.FC<Props> = ({ album, history }) => {
   );
 };
 
-export default withRouter(AlbumListItem);
+export default AlbumListItem;

@@ -8,6 +8,11 @@ export const getSingleAlbum = async (albumId: string): Promise<Album> => {
   const snapshot = await albumRef.get();
   const doc = snapshot.data();
 
+  if (!doc) {
+    // TODO: 通信エラー時の処理を実装する
+    throw new Error();
+  }
+
   let imagePath = NO_IMAGE_PATH;
   // let imagePath = "../assets/images/no_image.jpg";
   if (doc.imageFile.filename !== "") {
