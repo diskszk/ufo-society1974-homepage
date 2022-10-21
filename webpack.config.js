@@ -7,6 +7,7 @@ module.exports = {
   entry: `${PUBLIC_DIR}/src/index.tsx`,
   output: {
     path: `${__dirname}/public/dist`,
+    publicPath: "/dist/",
     filename: "index.js",
   },
   module: {
