@@ -4,7 +4,7 @@
   "main": "/public/index.html",
   "scripts": {
     "build": "webpack",
-    "compile:check": "tsc --noEmit",
+    "compile:check": "yarn lint && tsc --noEmit",
     "dev": "webpack-dev-server",
     "deploy": "yarn build && gh-pages -d public",
     "test": "jest",

@@ -47,7 +47,9 @@ export const createSuccessRequestAction = (): ModalStatusActionTypes => {
     type: SUCCESS_REQUEST,
   };
 };
-export const createFailRequestAction = (errorMessage: string): ModalStatusActionTypes => {
+export const createFailRequestAction = (
+  errorMessage: string
+): ModalStatusActionTypes => {
   return {
     type: FAIL_REQUEST,
     payload: errorMessage,
