@@ -35,7 +35,7 @@ export const Content = styled.div({
 export const LyricNote = styled.div`
   white-space: pre-wrap;
   text-align: left;
-  
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   text-align: left;
