@@ -67,5 +67,11 @@
         "semi": true
       }
     ]
-  }
+  },
+  "ignorePatterns": [
+    ".eslintrc.*",
+    "*.config.*",
+    "jest.setup.ts",
+    ".firebaserc"
+  ]
 }
