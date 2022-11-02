@@ -2,15 +2,23 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import eslint from "vite-plugin-eslint";
 import { resolve } from "path";
-
-const PUBLIC_PATH = resolve(__dirname, "public");
+import { createHtmlPlugin } from "vite-plugin-html";
 
 export default defineConfig({
-  plugins: [react(), eslint()],
+  plugins: [
+    react(),
+    eslint(),
+    createHtmlPlugin({
+      minify: true,
+      entry: "src/index.tsx",
+      template: "index.html",
+    }),
+  ],
   server: {
     host: true,
     port: 3000,
   },
+
   build: {
     outDir: resolve(__dirname, "dist"),
     emptyOutDir: true,
