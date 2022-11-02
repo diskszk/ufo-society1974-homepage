@@ -1,8 +1,7 @@
 module.exports = {
   stories: [
-    "../stories/**/*.stories.mdx",
-    "../src/**/stories.@(js|jsx|ts|tsx)",
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/**/stories.@(js|jsx|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-links",
@@ -11,6 +10,9 @@ module.exports = {
   ],
   framework: "@storybook/react",
   core: {
-    builder: "@storybook/builder-webpack5",
+    builder: "@storybook/builder-vite",
+  },
+  features: {
+    storyStoreV7: true,
   },
 };
