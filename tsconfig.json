@@ -11,7 +11,7 @@
     // viteを使うのに必要
     "isolatedModules": true,
     "useDefineForClassFields": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "vitest/globals"]
   },
   "include": ["./src/**/*"],
   "exclude": ["./src/?(*.)+(spec|test).+(ts|tsx|js)"]
