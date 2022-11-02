@@ -2,24 +2,19 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true,
-    "jest/globals": true
+    "node": true
   },
   "settings": {
     "react": {
       "version": "detect"
-    },
-    "jest": {
-      "version": 29
     }
   },
   "plugins": [
     "react",
     "@typescript-eslint",
-    "jest",
-    "jest-dom",
     "testing-library",
-    "react-hooks"
+    "react-hooks",
+    "vitest"
   ],
   "extends": [
     "eslint:recommended",
@@ -27,10 +22,7 @@
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
-    "plugin:jest/recommended",
-    "plugin:jest/style",
     "plugin:testing-library/react",
-    "plugin:jest-dom/recommended",
     "plugin:prettier/recommended",
     "prettier",
     "plugin:storybook/recommended"
@@ -68,10 +60,5 @@
       }
     ]
   },
-  "ignorePatterns": [
-    ".eslintrc.*",
-    "*.config.*",
-    "jest.setup.ts",
-    ".firebaserc"
-  ]
+  "ignorePatterns": [".eslintrc.*", "*.config.*", ".firebaserc"]
 }
