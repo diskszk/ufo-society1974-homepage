@@ -1,13 +1,11 @@
-// accessCounterで使う用
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBKlUfzrdhVw52YHmMCu6ENh89o45s-RMk",
-  authDomain: "ufo-society-1974.firebaseapp.com",
-  databaseURL: "https://ufo-society-1974.firebaseio.com",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
   projectId: "ufo-society-1974",
-  storageBucket: "ufo-society-1974.appspot.com",
-  messagingSenderId: "664562137202",
-  appId: "1:664562137202:web:07b91922eb6a35f5696aeb",
-  measurementId: "G-RR1G3PZJJL"
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 firebase.initializeApp(firebaseConfig);
