@@ -7,19 +7,12 @@
     "dev": "vite dev",
     "preview": "vite preview --port 8080",
     "compile": "tsc --noEmit",
-    "deploy:gh-pages": "yarn build && gh-pages -d public",
+    "deploy": "yarn build && gh-pages -d public",
     "test": "vitest run",
     "test:coverage": "vitest --coverage",
     "lint": "eslint --ext .tsx,.ts ./src/",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    
-    "build:functions": "yarn tsc -p ./functions/tsconfig.json",
-    "lint:functions": "yarn eslint --ext .ts,.js ./functions/src",
-    "shell:functions": "yarn build:functions && firebase functions:shell",
-    "serve:functions": "yarn build:functions && firebase emulators:start --only functions",
-    "logs:functions": "firebase functions:log",
-    "deploy:functions": "yarn lint:functions && yarn build:functions && firebase deploy --only functions"
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
