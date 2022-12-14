@@ -4,7 +4,7 @@ import { App } from "./App";
 import { worker } from "./mocks/browser";
 
 if (process.env.NODE_ENV === "development") {
-  worker.start();
+  void worker.start();
 }
 const container = document.getElementById("app");
 
