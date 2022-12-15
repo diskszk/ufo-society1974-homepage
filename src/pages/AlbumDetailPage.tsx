@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { PageHeader, AlbumImage, Description, Container } from "./styles";
 import { Album, Song } from "../types";
-import { getSingleAlbum } from "../lib/getSingleAlbum";
+import { getSingleAlbum } from "../lib/getSingleAlbumAPI";
 import { NO_IMAGE_PATH } from "../constants";
 import ServiceList from "../components/ServiceList";
 import SongListTable from "../components/SongListTable";
-import { getSongs } from "../lib/getSongs";
+import { getSongs } from "../lib/getSongsAPI";
 import { createStartRequestAction } from "../store/LoadingStatusReducer";
 import {
   createFailRequestAction,
@@ -61,7 +61,7 @@ const AlbumDetailPage: React.FC = () => {
 
   useEffect(() => {
     fetchAll();
-  }, [setAlbum, setSongs]);
+  }, [fetchAll, setAlbum, setSongs]);
   return (
     <article className="space-bottom">
       <PageHeader>{album.title}</PageHeader>

@@ -12459,6 +12459,11 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
+vite-plugin-env-compatible@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-env-compatible/-/vite-plugin-env-compatible-1.1.1.tgz#2e11b059a5f3e8fc609d6a4bba84ca497081ee20"
+  integrity sha512-4lqhBWhOzP+SaCPoCVdmpM5cXzjKQV5jgFauxea488oOeElXo/kw6bXkMIooZhrh9q7gclTl8en6N9NmnqUwRQ==
+
 vite-plugin-eslint@^1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/vite-plugin-eslint/-/vite-plugin-eslint-1.8.1.tgz#0381b8272e7f0fd8b663311b64f7608d55d8b04c"

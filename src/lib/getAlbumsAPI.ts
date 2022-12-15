@@ -1,4 +1,5 @@
 import axios from "axios";
+import { WEB_API_BASE_URL } from "../constants";
 import { Album } from "../types";
 
 interface AlbumsResponse {
@@ -6,9 +7,7 @@ interface AlbumsResponse {
 }
 
 export const getAlbums = async (): Promise<Album[]> => {
-  const BASE_URL = `${process.env.API_BASE_URL}/api`;
-
-  const res = await axios.get<AlbumsResponse>(`${BASE_URL}/albums`);
+  const res = await axios.get<AlbumsResponse>(`${WEB_API_BASE_URL}/albums`);
 
   const albums = res.data.albums;
 

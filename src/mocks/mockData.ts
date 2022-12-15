@@ -37,7 +37,27 @@ export const createMockAlbum = (id: string): Album => {
 };
 
 const lyric = {
-  kite: "",
+  kite: `ちゃちな指輪で 夢を見せるように
+さみしい公園で描いた迷路
+
+きみには愛が きみには風景が
+ガラス瓶の中に ずっと
+影を落としている
+
+ビー玉あそびを
+町が透けるまで
+そうだ
+きみは何か思うのに
+
+音も無く
+機体はきみの空を覆う
+明滅に向かうように
+空をのぼったら
+
+着地しないはずの
+目盛りだらけの月
+きみの手で 白い手で
+空をこじあけて`,
 };
 
 export const mockSongs: Song[] = [
@@ -50,8 +70,8 @@ export const mockSongs: Song[] = [
     },
     story: "song-story-01",
     title: "ソングタイトル01",
-    wordsRights: "John Lennon",
-    musicRights: "Paul McCartney",
+    wordsRights: "XXX XXX",
+    musicRights: "YYY YYY",
   },
   {
     id: "song-id-02",
@@ -62,8 +82,8 @@ export const mockSongs: Song[] = [
     },
     story: "song-story-02",
     title: "ソングタイトル02",
-    wordsRights: "John Lennon",
-    musicRights: "Paul McCartney",
+    wordsRights: "XXX XXX",
+    musicRights: "YYY YYY",
   },
   {
     id: "song-id-03",
@@ -74,10 +94,25 @@ export const mockSongs: Song[] = [
     },
     story: "song-story-03",
     title: "ソングタイトル03",
-    wordsRights: "John Lennon",
-    musicRights: "Paul McCartney",
+    wordsRights: "XXX XXX",
+    musicRights: "YYY YYY",
   },
 ];
+
+export const createMockSong = (songId: string): Song => {
+  return {
+    id: songId,
+    lyric: lyric.kite,
+    songFile: {
+      path: "",
+      filename: "",
+    },
+    story: `song-story-${songId}`,
+    title: `ソングタイトル${songId}`,
+    wordsRights: "XXX XXX",
+    musicRights: "YYY YYY",
+  };
+};
 
 export const mockAlbumInfo = {
   albumId: "album-id-01",

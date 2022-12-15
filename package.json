@@ -68,6 +68,7 @@
     "thunk": "0.0.1",
     "typescript": "^4.8.4",
     "vite": "^3.2.2",
+    "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-html": "^3.2.0",
     "vitest": "^0.24.5"

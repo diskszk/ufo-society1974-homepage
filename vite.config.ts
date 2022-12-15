@@ -2,14 +2,15 @@
 
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import eslint from "vite-plugin-eslint";
 import { resolve } from "path";
 import { createHtmlPlugin } from "vite-plugin-html";
+import env from "vite-plugin-env-compatible";
 
 export default defineConfig({
   plugins: [
     react(),
-    eslint(),
+    // eslint(),
+    env({ prefix: "VITE", mountedPath: "process.env" }),
     createHtmlPlugin({
       minify: true,
       entry: "src/index.tsx",

@@ -1,20 +1,16 @@
 import axios from "axios";
+import { WEB_API_BASE_URL } from "../constants";
 import { Song } from "../types";
 
 interface SongsResponse {
   songs: Song[];
 }
 
-export const getSong = async (
-  albumId: string,
-  songId: string
-): Promise<Song> => {
-  const BASE_URL = `${process.env.API_BASE_URL}/api`;
-
+export const getSongs = async (albumId: string): Promise<Song[]> => {
   const res = await axios.get<SongsResponse>(
-    `${BASE_URL}/albums/${albumId}/songs/${songId}`
+    `${WEB_API_BASE_URL}/albums/${albumId}/songs`
   );
 
-  const song = res.data.songs[0];
-  return song;
+  const songs = res.data.songs;
+  return songs;
 };
