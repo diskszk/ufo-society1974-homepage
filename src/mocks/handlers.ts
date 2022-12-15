@@ -1,12 +1,6 @@
 import { rest } from "msw";
 import { WEB_API_BASE_URL } from "../constants";
-import {
-  createMockAlbum,
-  createMockSong,
-  mockAlbumInfo,
-  mockAlbums,
-  mockSongs,
-} from "./mockData";
+import { mockAlbumInfo, mockAlbums, mockSongs } from "./mockData";
 
 export const handlers = [
   rest.get(`${WEB_API_BASE_URL}/albums`, (req, res, ctx) => {
@@ -22,8 +16,7 @@ export const handlers = [
     const id = req.params.id as string;
 
     // 404の処理 エラー時のレスポンスが不明
-
-    const mockAlbum = createMockAlbum(id);
+    const mockAlbum = mockAlbums.find((album) => album.id === id);
 
     return res(
       ctx.status(200),
@@ -49,11 +42,11 @@ export const handlers = [
     (req, res, ctx) => {
       const songId = req.params.songId as string;
 
-      const song = createMockSong(songId);
+      const mockSong = mockSongs.find((song) => song.id === songId);
       return res(
         ctx.status(200),
         ctx.json({
-          songs: [song],
+          songs: [mockSong],
         })
       );
     }

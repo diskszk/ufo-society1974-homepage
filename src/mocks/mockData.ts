@@ -1,12 +1,14 @@
+import { NO_IMAGE_PATH } from "../constants";
 import { Album, Song } from "../types";
+import kite from "../../mock-song-data/01_kite.mp3";
 
 export const mockAlbums: Album[] = [
   {
     id: "album-id-01",
     description: "description-01",
     imageFile: {
-      path: "",
-      filename: "",
+      path: NO_IMAGE_PATH,
+      filename: "no_image",
     },
     publishedDate: "1995-02-03",
     title: "テストアルバムタイトル01",
@@ -15,26 +17,13 @@ export const mockAlbums: Album[] = [
     id: "album-id-02",
     description: "description-02",
     imageFile: {
-      path: "",
-      filename: "",
+      path: NO_IMAGE_PATH,
+      filename: "no_image",
     },
     publishedDate: "2000-12-23",
     title: "テストアルバムタイトル02",
   },
 ];
-
-export const createMockAlbum = (id: string): Album => {
-  return {
-    id,
-    description: `description-${id}`,
-    imageFile: {
-      path: "",
-      filename: "",
-    },
-    publishedDate: "1995-02-03",
-    title: `テストアルバムタイトル${id}`,
-  };
-};
 
 const lyric = {
   kite: `ちゃちな指輪で 夢を見せるように
@@ -62,11 +51,11 @@ const lyric = {
 
 export const mockSongs: Song[] = [
   {
-    id: "song-id-01",
+    id: "1",
     lyric: lyric.kite,
     songFile: {
-      path: "",
-      filename: "",
+      path: kite,
+      filename: "01_kite.mp3",
     },
     story: "song-story-01",
     title: "ソングタイトル01",
@@ -74,7 +63,7 @@ export const mockSongs: Song[] = [
     musicRights: "YYY YYY",
   },
   {
-    id: "song-id-02",
+    id: "2",
     lyric: lyric.kite,
     songFile: {
       path: "",
@@ -86,7 +75,7 @@ export const mockSongs: Song[] = [
     musicRights: "YYY YYY",
   },
   {
-    id: "song-id-03",
+    id: "3",
     lyric: lyric.kite,
     songFile: {
       path: "",
@@ -98,21 +87,6 @@ export const mockSongs: Song[] = [
     musicRights: "YYY YYY",
   },
 ];
-
-export const createMockSong = (songId: string): Song => {
-  return {
-    id: songId,
-    lyric: lyric.kite,
-    songFile: {
-      path: "",
-      filename: "",
-    },
-    story: `song-story-${songId}`,
-    title: `ソングタイトル${songId}`,
-    wordsRights: "XXX XXX",
-    musicRights: "YYY YYY",
-  };
-};
 
 export const mockAlbumInfo = {
   albumId: "album-id-01",

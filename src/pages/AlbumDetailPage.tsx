@@ -61,7 +61,7 @@ const AlbumDetailPage: React.FC = () => {
 
   useEffect(() => {
     fetchAll();
-  }, [fetchAll, setAlbum, setSongs]);
+  }, [setAlbum, setSongs]);
   return (
     <article className="space-bottom">
       <PageHeader>{album.title}</PageHeader>
