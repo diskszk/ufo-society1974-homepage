@@ -58,6 +58,7 @@
     "eslint-plugin-vitest": "^0.0.11",
     "gh-pages": "^3.1.0",
     "happy-dom": "^7.6.6",
+    "msw": "^0.49.2",
     "prettier": "^2.7.1",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
@@ -67,6 +68,7 @@
     "thunk": "0.0.1",
     "typescript": "^4.8.4",
     "vite": "^3.2.2",
+    "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-html": "^3.2.0",
     "vitest": "^0.24.5"
@@ -79,8 +81,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.10.9",
+    "axios": "^1.2.1",
     "firebase": "^8.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

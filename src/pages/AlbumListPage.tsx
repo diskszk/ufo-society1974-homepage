@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AlbumListItem from "../components/AlbumListItem";
 import style from "styled-components";
-import { getAlbums } from "../lib/getAlbums";
+import { getAlbums } from "../lib/getAlbumsAPI";
 import { Album } from "../types";
 import { MIN_WIDTH } from "../constants";
 import { PageHeader } from "./styles";
