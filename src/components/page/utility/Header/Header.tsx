@@ -6,11 +6,7 @@ const StyledHeader = styled.header({
 });
 
 export const Header: React.FC = () => {
-  const topPageUrl =
-    // process.env.NODE_ENV !== "development"
-    // ?
-    "https://diskszk.github.io/ufo-society1974/";
-  // : "/index.html";
+  const topPageUrl = "/#";
 
   return (
     <StyledHeader>

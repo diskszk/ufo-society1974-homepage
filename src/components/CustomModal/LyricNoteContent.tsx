@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Content, LyricNote } from "./styles";
 import CustomButton from "../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStore, ModalStatus } from "../../types";
+import { RootStore, ModalStatus, Song } from "../../types";
 import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
 import styled from "styled-components";
 import { MIN_WIDTH } from "../../constants";
@@ -21,6 +21,33 @@ const Spacer = styled.div({
   height: 16,
 });
 
+type ComponentProps = {
+  song: Song;
+  handleClose: () => void;
+};
+
+export const Component: React.FC<ComponentProps> = ({ song, handleClose }) => (
+  <Content>
+    <CustomH3>{song.title}</CustomH3>
+    {song.songFile.filename !== "" && (
+      // 要テスト: storageの楽曲ファイルだけ削除されている場合
+      <>
+        <audio controls controlsList="nodownload" src={song.songFile.path} />
+        <Spacer />
+      </>
+    )}
+    <LyricNote>
+      <p className="lyric">{song.lyric}</p>
+    </LyricNote>
+    <CopyRightArea>
+      <p>{`Lyrics by    ${song.wordsRights}`}</p>
+      <p>{`Composed by  ${song.musicRights}`}</p>
+    </CopyRightArea>
+    <Spacer />
+    <CustomButton label="とじる" handleClick={handleClose} />
+  </Content>
+);
+
 const LyricNoteContent: React.FC = () => {
   const dispatch = useDispatch();
   const { song } = useSelector<RootStore, ModalStatus>(
@@ -30,27 +57,8 @@ const LyricNoteContent: React.FC = () => {
   const handleClose = useCallback(() => {
     dispatch(CreateCloseModalAction());
   }, []);
-  return (
-    <Content>
-      <CustomH3>{song.title}</CustomH3>
-      {song.songFile.filename !== "" && (
-        // 要テスト: storageの楽曲ファイルだけ削除されている場合
-        <>
-          <audio controls controlsList="nodownload" src={song.songFile.path} />
-          <Spacer />
-        </>
-      )}
-      <LyricNote>
-        <p className="lyric">{song.lyric}</p>
-      </LyricNote>
-      <CopyRightArea>
-        <p>{`Lyrics by    ${song.wordsRights}`}</p>
-        <p>{`Composed by  ${song.musicRights}`}</p>
-      </CopyRightArea>
-      <Spacer />
-      <CustomButton label="とじる" handleClick={handleClose} />
-    </Content>
-  );
+
+  return <Component song={song} handleClose={handleClose} />;
 };
 
 export default LyricNoteContent;
