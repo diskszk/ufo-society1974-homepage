@@ -3,6 +3,7 @@ import { Component as ModalWrapper } from ".";
 import { Component as ErrorModalContent } from "./ErrorModalContent";
 import { Component as LyricNoteContent } from "./LyricNoteContent";
 import LoadingModalContent from "./LoadingModalContent";
+import { mockSongs } from "../../mocks/mockData";
 import { Song } from "../../types";
 
 export default {
@@ -30,48 +31,22 @@ export const LoadingModal = () => {
 };
 
 export const LyricNote_ExistsSong = () => {
-  const song: Song = {
-    id: "01",
-    lyric: `
-    ${"X".repeat(40)}
-    ${"X".repeat(20)}
-    ${"X".repeat(30)}
-    ${"X".repeat(10)}
-    `,
-    songFile: {
-      filename: "",
-      path: "",
-    },
-    story: "XXXXXXXXXXXXXXXXXXXX",
-    title: "kite",
-    wordsRights: "XXX YYY",
-    musicRights: "XXX YYY",
-  };
   return (
     <ModalWrapper>
-      <LyricNoteContent song={song} handleClose={() => void 0} />
+      <LyricNoteContent song={mockSongs[0]} handleClose={() => void 0} />
     </ModalWrapper>
   );
 };
 
 export const LyricNote_NotExistsSong = () => {
   const song: Song = {
-    id: "01",
-    lyric: `
-    ${"X".repeat(40)}
-    ${"X".repeat(20)}
-    ${"X".repeat(30)}
-    ${"X".repeat(10)}
-    `,
+    ...mockSongs[0],
     songFile: {
-      filename: "XXXXXX",
-      path: "YYYYYYY",
+      filename: "",
+      path: "",
     },
-    story: "XXXXXXXXXXXXXXXXXXXX",
-    title: "kite",
-    wordsRights: "XXX YYY",
-    musicRights: "XXX YYY",
   };
+
   return (
     <ModalWrapper>
       <LyricNoteContent song={song} handleClose={() => void 0} />

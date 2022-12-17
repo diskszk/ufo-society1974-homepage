@@ -4,9 +4,6 @@ import { Album } from "../types";
 import style from "styled-components";
 import { MIN_WIDTH } from "../constants";
 
-interface Props {
-  album: Album;
-}
 const List = style.li`
   display: flex;
   flex-direction: column;
@@ -28,18 +25,30 @@ const Title = style.p({
   margin: 0,
 });
 
+type ComponentProps = {
+  handleClickAlbum: () => void;
+  album: Album;
+};
+export const Component: React.FC<ComponentProps> = ({
+  handleClickAlbum,
+  album,
+}) => (
+  <List onClick={handleClickAlbum}>
+    <Img src={album.imageFile.path} alt={album.title} />
+    <Title>{album.title}</Title>
+  </List>
+);
+
+interface Props {
+  album: Album;
+}
 const AlbumListItem: React.FC<Props> = ({ album }) => {
   const navigate = useNavigate();
   const handleClickAlbum = () => {
     navigate(`/detail/${album.id}`);
   };
 
-  return (
-    <List onClick={handleClickAlbum}>
-      <Img src={album.imageFile.path} alt={album.title} />
-      <Title>{album.title}</Title>
-    </List>
-  );
+  return <Component handleClickAlbum={handleClickAlbum} album={album} />;
 };
 
 export default AlbumListItem;

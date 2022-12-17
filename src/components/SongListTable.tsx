@@ -40,6 +40,42 @@ const Anchor = style.a({
   cursor: "pointer",
 });
 
+type ComponentProps = {
+  songs: Song[];
+  handleClickSong: (song: Song) => void;
+};
+
+export const Component: React.FC<ComponentProps> = ({
+  songs,
+  handleClickSong,
+}) => (
+  // 子コンポーネントにmarginをもたせたくない
+  <TableContainer sx={{ width: "80%", m: "0 auto" }} component={Paper}>
+    <Table aria-label="customized table">
+      <TableBody>
+        {songs.map((song) => (
+          <StyledTableRow key={song.id}>
+            <StyledTableCell
+              sx={{ width: "5%" }}
+              component="th"
+              scope="row"
+              align="right"
+            >
+              {song.id}
+            </StyledTableCell>
+            <StyledTableCell>
+              <Anchor onClick={() => handleClickSong(song)}>
+                {song.title}
+              </Anchor>
+            </StyledTableCell>
+            <StyledTableCell>{song.story}</StyledTableCell>
+          </StyledTableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+);
+
 type Props = {
   songs: Song[];
 };
@@ -50,33 +86,7 @@ const SongListTable: React.FC<Props> = ({ songs }) => {
     dispatch(openLyricNote(song));
   };
 
-  return (
-    // 子コンポーネントにmarginをもたせたくない
-    <TableContainer sx={{ width: "80%", m: "0 auto" }} component={Paper}>
-      <Table aria-label="customized table">
-        <TableBody>
-          {songs.map((song) => (
-            <StyledTableRow key={song.id}>
-              <StyledTableCell
-                sx={{ width: "5%" }}
-                component="th"
-                scope="row"
-                align="right"
-              >
-                {song.id}
-              </StyledTableCell>
-              <StyledTableCell>
-                <Anchor onClick={() => handleClickSong(song)}>
-                  {song.title}
-                </Anchor>
-              </StyledTableCell>
-              <StyledTableCell>{song.story}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+  return <Component songs={songs} handleClickSong={handleClickSong} />;
 };
 
 export default SongListTable;
