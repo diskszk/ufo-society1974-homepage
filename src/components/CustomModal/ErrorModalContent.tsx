@@ -6,6 +6,22 @@ import { ModalStatus, RootStore } from "../../types";
 import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
 import { useNavigate } from "react-router-dom";
 
+type ComponentProps = {
+  errorMessage: string;
+  handleClickClose: () => void;
+};
+
+export const Component: React.FC<ComponentProps> = ({
+  handleClickClose,
+  errorMessage,
+}) => (
+  <Content>
+    <h3>{errorMessage}</h3>
+    <br />
+    <CustomButton label="とじる" handleClick={handleClickClose} />
+  </Content>
+);
+
 const ErrorModalContent: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,11 +37,10 @@ const ErrorModalContent: React.FC = () => {
   }, []);
 
   return (
-    <Content>
-      <h3>{errorMessage}</h3>
-      <br />
-      <CustomButton label="とじる" handleClick={handleClickClose} />
-    </Content>
+    <Component
+      errorMessage={errorMessage}
+      handleClickClose={handleClickClose}
+    />
   );
 };
 
