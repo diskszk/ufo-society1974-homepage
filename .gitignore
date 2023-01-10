@@ -74,3 +74,4 @@ mock-song-data
 cypress/downloads
 cypress/videos
 cypress/screenshots
+src/__snapshots__

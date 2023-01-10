@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Album } from "../types";
 import style from "styled-components";
 import { MIN_WIDTH } from "../constants";
@@ -33,9 +33,11 @@ export const Component: React.FC<ComponentProps> = ({
   handleClickAlbum,
   album,
 }) => (
-  <List onClick={handleClickAlbum}>
-    <Img src={album.imageFile.path} alt={album.title} />
-    <Title>{album.title}</Title>
+  <List onClick={handleClickAlbum} data-testid="loaded">
+    <Link to={`/detail/${album.id}`}>
+      <Img src={album.imageFile.path} alt={album.title} />
+      <Title>{album.title}</Title>
+    </Link>
   </List>
 );
 
@@ -43,9 +45,9 @@ interface Props {
   album: Album;
 }
 const AlbumListItem: React.FC<Props> = ({ album }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleClickAlbum = () => {
-    navigate(`/detail/${album.id}`);
+    // navigate(`/detail/${album.id}`);
   };
 
   // TODO: aタグでリンクするべき
