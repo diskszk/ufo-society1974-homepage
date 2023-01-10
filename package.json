@@ -12,7 +12,9 @@
     "test:coverage": "vitest --coverage",
     "lint": "eslint --ext .tsx,.ts ./src/",
     "storybook": "start-storybook -s -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome"
   },
   "repository": {
     "type": "git",
@@ -47,6 +49,7 @@
     "@vitejs/plugin-react": "^2.2.0",
     "@vitest/coverage-c8": "^0.24.5",
     "babel-loader": "^8.2.5",
+    "cypress": "^12.3.0",
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",

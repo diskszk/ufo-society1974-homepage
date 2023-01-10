@@ -70,3 +70,7 @@ dist/
 firebase-debug.log
 coverage
 mock-song-data
+
+cypress/downloads
+cypress/videos
+cypress/screenshots

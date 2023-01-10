@@ -48,6 +48,7 @@ const AlbumListItem: React.FC<Props> = ({ album }) => {
     navigate(`/detail/${album.id}`);
   };
 
+  // TODO: aタグでリンクするべき
   return <Component handleClickAlbum={handleClickAlbum} album={album} />;
 };
 
