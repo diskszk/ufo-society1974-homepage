@@ -1,20 +1,13 @@
-import { render, cleanup, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { MemoryRouter } from "react-router-dom";
+import { cleanup, screen } from "@testing-library/react";
 import { AlbumDetailPage } from "../pages";
-import { store } from "../store/store";
+import { customRender } from "./test-utils";
 
 afterEach(cleanup);
 
 describe("Snapshot Testing", () => {
   test("AlbumDetailPage", async () => {
-    const { asFragment } = render(
-      <Provider store={store}>
-        <MemoryRouter>
-          <AlbumDetailPage />
-        </MemoryRouter>
-      </Provider>
-    );
+    const { asFragment } = customRender(<AlbumDetailPage />);
+
     // fetchを待つ
     await screen.findAllByTestId("loaded");
 

@@ -9,6 +9,7 @@
     "compile": "tsc --noEmit",
     "deploy": "yarn build && gh-pages -d public",
     "test": "vitest run",
+    "test:o" :"vitest run --onlyChanged",
     "test:coverage": "vitest --coverage",
     "lint": "eslint --ext .tsx,.ts ./src/",
     "storybook": "start-storybook -s -p 6006",
