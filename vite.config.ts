@@ -27,6 +27,10 @@ export default defineConfig({
     environment: "happy-dom",
     root: "./src/",
     setupFiles: "./vitest.setup.ts",
+
+    // https://vitest.dev/config/#snapshotformat
+    resolveSnapshotPath: (_, snapExtension) =>
+      resolve(__dirname, "./src/__snapshots__/" + "snapshot" + snapExtension),
   },
 
   build: {

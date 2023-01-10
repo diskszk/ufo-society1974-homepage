@@ -52,7 +52,7 @@ export const Component: React.FC<ComponentProps> = ({
   // 子コンポーネントにmarginをもたせたくない
   <TableContainer sx={{ width: "80%", m: "0 auto" }} component={Paper}>
     <Table aria-label="customized table">
-      <TableBody>
+      <TableBody data-testid="loaded">
         {songs.map((song) => (
           <StyledTableRow key={song.id}>
             <StyledTableCell

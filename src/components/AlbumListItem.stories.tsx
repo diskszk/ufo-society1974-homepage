@@ -2,10 +2,18 @@ import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import { Component } from "./AlbumListItem";
 import { mockAlbums } from "../mocks/mockData";
+import { MemoryRouter } from "react-router-dom";
 
 export default {
   title: "components/AlbumListItem",
   component: Component,
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
 } as ComponentMeta<typeof Component>;
 
 type Props = ComponentProps<typeof Component>;
