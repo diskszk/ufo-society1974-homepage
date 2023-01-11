@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Album } from "../types";
 import style from "styled-components";
-import { MIN_WIDTH } from "../constants";
+import { AltImageFile, MIN_WIDTH } from "../constants";
 
 const List = style.li`
   display: flex;
@@ -41,10 +41,18 @@ export const Component: React.FC<ComponentProps> = ({
   </List>
 );
 
-interface Props {
+type Props = {
   album: Album;
-}
-const AlbumListItem: React.FC<Props> = ({ album }) => {
+};
+const AlbumListItem: React.FC<Props> = (props) => {
+  let album: Album;
+
+  if (props.album.imageFile === null) {
+    album = { ...props.album, imageFile: AltImageFile };
+  } else {
+    album = { ...props.album };
+  }
+
   // const navigate = useNavigate();
   const handleClickAlbum = () => {
     // navigate(`/detail/${album.id}`);
