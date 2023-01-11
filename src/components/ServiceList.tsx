@@ -1,4 +1,3 @@
-import React from "react";
 import { PublishPlatform } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -36,7 +35,7 @@ const LogoP = styled.p({
   color: "#eee",
 });
 
-const ServiceList: React.FC<Props> = ({ services }) => {
+export const ServiceList: React.FC<Props> = ({ services }) => {
   return (
     <Ul>
       {services.iTunes && (
@@ -78,5 +77,3 @@ const ServiceList: React.FC<Props> = ({ services }) => {
     </Ul>
   );
 };
-
-export default ServiceList;

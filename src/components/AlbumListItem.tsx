@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Album } from "../types";
 import style from "styled-components";
@@ -44,7 +43,7 @@ export const Component: React.FC<ComponentProps> = ({
 type Props = {
   album: Album;
 };
-const AlbumListItem: React.FC<Props> = (props) => {
+export const AlbumListItem: React.FC<Props> = (props) => {
   let album: Album;
 
   if (props.album.imageFile === null) {
@@ -61,5 +60,3 @@ const AlbumListItem: React.FC<Props> = (props) => {
   // TODO: aタグでリンクするべき
   return <Component handleClickAlbum={handleClickAlbum} album={album} />;
 };
-
-export default AlbumListItem;

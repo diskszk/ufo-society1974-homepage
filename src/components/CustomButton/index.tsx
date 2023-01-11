@@ -1,4 +1,3 @@
-import React from "react";
 import { CustomButton, CustomSpan } from "./styles";
 
 type Props = {
@@ -6,12 +5,10 @@ type Props = {
   handleClick: () => void;
 };
 
-const Button: React.FC<Props> = ({ label, handleClick }) => {
+export const Button: React.FC<Props> = ({ label, handleClick }) => {
   return (
     <CustomButton onClick={handleClick}>
       <CustomSpan>{label}</CustomSpan>
     </CustomButton>
   );
 };
-
-export default Button;

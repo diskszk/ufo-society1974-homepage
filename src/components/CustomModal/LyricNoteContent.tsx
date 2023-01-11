@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { Content, LyricNote } from "./styles";
-import CustomButton from "../CustomButton";
+import { Button } from "../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, ModalStatus, Song } from "../../types";
 import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
@@ -44,11 +44,11 @@ export const Component: React.FC<ComponentProps> = ({ song, handleClose }) => (
       <p>{`Composed by  ${song.musicRights}`}</p>
     </CopyRightArea>
     <Spacer />
-    <CustomButton label="とじる" handleClick={handleClose} />
+    <Button label="とじる" handleClick={handleClose} />
   </Content>
 );
 
-const LyricNoteContent: React.FC = () => {
+export const LyricNoteContent: React.FC = () => {
   const dispatch = useDispatch();
   const { song } = useSelector<RootStore, ModalStatus>(
     (state) => state.modalStatus
@@ -60,5 +60,3 @@ const LyricNoteContent: React.FC = () => {
 
   return <Component song={song} handleClose={handleClose} />;
 };
-
-export default LyricNoteContent;

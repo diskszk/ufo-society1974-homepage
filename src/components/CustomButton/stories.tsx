@@ -1,6 +1,7 @@
+/* eslint-disable import/no-default-export */
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
-import Button from ".";
+import { Button } from "./";
 
 export default {
   title: "components/Button",

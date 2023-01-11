@@ -1,6 +1,6 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { Content } from "./styles";
-import CustomButton from "../CustomButton";
+import { Button } from "../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalStatus, RootStore } from "../../types";
 import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
@@ -18,11 +18,11 @@ export const Component: React.FC<ComponentProps> = ({
   <Content>
     <h3>{errorMessage}</h3>
     <br />
-    <CustomButton label="とじる" handleClick={handleClickClose} />
+    <Button label="とじる" handleClick={handleClickClose} />
   </Content>
 );
 
-const ErrorModalContent: React.FC = () => {
+export const ErrorModalContent: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { errorMessage } = useSelector<RootStore, ModalStatus>(
@@ -43,5 +43,3 @@ const ErrorModalContent: React.FC = () => {
     />
   );
 };
-
-export default ErrorModalContent;

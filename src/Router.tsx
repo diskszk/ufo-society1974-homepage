@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import { Layout } from "./components/page/utility/Layout/Layout";
 import { AlbumListPage, AlbumDetailPage, UndefinedPage } from "./pages";

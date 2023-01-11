@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { Container, Modal } from "./styles";
-import LoadingModalContent from "./LoadingModalContent";
-import ErrorModalContent from "./ErrorModalContent";
-import LyricNoteContent from "./LyricNoteContent";
+import { LoadingModalContent } from "./LoadingModalContent";
+import { ErrorModalContent } from "./ErrorModalContent";
+import { LyricNoteContent } from "./LyricNoteContent";
 import { useSelector } from "react-redux";
 import { RootStore, ModalStatus } from "../../types";
 
@@ -16,7 +16,7 @@ export const Component: React.FC<ComponentProps> = ({ children }) => (
 );
 
 // ErrorMessage / LyricNote / Loading...
-const ModalWrapper: React.FC = () => {
+export const ModalWrapper: React.FC = () => {
   const { modalType } = useSelector<RootStore, ModalStatus>(
     (state) => state.modalStatus
   );
@@ -43,5 +43,3 @@ const ModalWrapper: React.FC = () => {
     throw new Error();
   }
 };
-
-export default ModalWrapper;

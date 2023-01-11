@@ -1,4 +1,3 @@
-import React from "react";
 import style from "styled-components";
 
 const H1 = style.h1({
@@ -7,7 +6,7 @@ const H1 = style.h1({
 const Message = style.p({
   color: "#eee",
 });
-const UndefinedPage: React.FC = () => {
+export const UndefinedPage: React.FC = () => {
   return (
     <div>
       <H1>404 Page Not Found</H1>
@@ -15,5 +14,3 @@ const UndefinedPage: React.FC = () => {
     </div>
   );
 };
-
-export default UndefinedPage;

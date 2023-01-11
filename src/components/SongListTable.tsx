@@ -1,5 +1,4 @@
 // TODO: styled -> emotion 化
-import React from "react";
 import { useDispatch } from "react-redux";
 
 import {
@@ -80,7 +79,7 @@ type Props = {
   songs: Song[];
 };
 
-const SongListTable: React.FC<Props> = ({ songs }) => {
+export const SongListTable: React.FC<Props> = ({ songs }) => {
   const dispatch = useDispatch();
   const handleClickSong = (song: Song) => {
     dispatch(openLyricNote(song));
@@ -88,5 +87,3 @@ const SongListTable: React.FC<Props> = ({ songs }) => {
 
   return <Component songs={songs} handleClickSong={handleClickSong} />;
 };
-
-export default SongListTable;

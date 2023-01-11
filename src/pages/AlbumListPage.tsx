@@ -1,5 +1,4 @@
-import React from "react";
-import AlbumListItem from "../components/AlbumListItem";
+import { AlbumListItem } from "../components/AlbumListItem";
 import style from "styled-components";
 import { MIN_WIDTH } from "../constants";
 import { PageHeader } from "./styles";
@@ -22,7 +21,7 @@ const Ul = style.ul`
   }
 `;
 
-const AlbumListPage: React.FC = () => {
+export const AlbumListPage: React.FC = () => {
   const { data: albums } = useFetch(["albums"], getAlbums);
 
   return (
@@ -40,5 +39,3 @@ const AlbumListPage: React.FC = () => {
     </article>
   );
 };
-
-export default AlbumListPage;
