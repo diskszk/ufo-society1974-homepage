@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "main": "/public/index.html",
   "scripts": {
-    "build": "yarn lint && yarn compile && vite build",
+    "build": "yarn lint && yarn test && vite build",
     "dev": "vite dev",
     "preview": "vite preview --port 8080",
     "compile": "tsc --noEmit",
-    "deploy": "yarn build && gh-pages -d public",
+    "deploy": "yarn build && firebase deploy --only hosting",
     "test": "vitest run",
-    "test:o": "vitest run --onlyChanged",
-    "test:coverage": "vitest --coverage",
     "lint": "eslint --ext .tsx,.ts ./src/",
     "storybook": "start-storybook -s -p 6006",
     "build-storybook": "build-storybook",
@@ -23,7 +21,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/diskszk/ufo-society1974/issues"
   },
@@ -63,7 +61,6 @@
     "eslint-plugin-storybook": "^0.6.7",
     "eslint-plugin-testing-library": "^5.9.1",
     "eslint-plugin-vitest": "^0.0.11",
-    "gh-pages": "^3.1.0",
     "happy-dom": "^7.6.6",
     "msw": "^0.49.2",
     "prettier": "^2.7.1",
@@ -89,7 +86,6 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.10.9",
     "axios": "^1.2.1",
-    "firebase": "^8.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
