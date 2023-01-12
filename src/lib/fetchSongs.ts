@@ -6,7 +6,7 @@ interface SongsResponse {
   songs: Song[];
 }
 
-export const getSongs = async (albumId: string): Promise<Song[]> => {
+export const fetchSongs = async (albumId: string): Promise<Song[]> => {
   const res = await axios.get<SongsResponse>(
     `${WEB_API_BASE_URL}/albums/${albumId}/songs`
   );

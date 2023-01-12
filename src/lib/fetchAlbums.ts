@@ -6,7 +6,7 @@ interface AlbumsResponse {
   albums: Album[];
 }
 
-export const getAlbums = async (): Promise<Album[]> => {
+export const fetchAlbums = async (): Promise<Album[]> => {
   const res = await axios.get<AlbumsResponse>(`${WEB_API_BASE_URL}/albums`);
 
   const albums = res.data.albums;

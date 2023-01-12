@@ -2,19 +2,18 @@ import { Link, useLocation } from "react-router-dom";
 import { PageHeader, AlbumImage, Description, Container } from "./styles";
 import { ServiceList } from "../components/ServiceList";
 import { SongListTable } from "../components/SongListTable";
-import { getSongs } from "../lib/getSongsAPI";
 import { useFetch } from "../hooks/useFetch";
-import { getSingleAlbum } from "../lib/getSingleAlbumAPI";
+import { fetchAlbum, fetchSongs } from "../lib";
 
 export const AlbumDetailPage: React.FC = () => {
   const location = useLocation();
   const albumId = location.pathname.split("/")[2];
 
   const { data: album } = useFetch(["album", albumId], () =>
-    getSingleAlbum(albumId)
+    fetchAlbum(albumId)
   );
 
-  const { data: songs } = useFetch(["songs"], () => getSongs(albumId));
+  const { data: songs } = useFetch(["songs"], () => fetchSongs(albumId));
 
   return (
     <article className="space-bottom">

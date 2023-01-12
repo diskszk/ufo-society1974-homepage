@@ -4,7 +4,7 @@ import { MIN_WIDTH } from "../constants";
 import { PageHeader } from "./styles";
 
 import { Album } from "../types";
-import { getAlbums } from "../lib/getAlbumsAPI";
+import { fetchAlbums } from "../lib";
 import { useFetch } from "../hooks/useFetch";
 
 const Ul = style.ul`
@@ -22,7 +22,7 @@ const Ul = style.ul`
 `;
 
 export const AlbumListPage: React.FC = () => {
-  const { data: albums } = useFetch(["albums"], getAlbums);
+  const { data: albums } = useFetch(["albums"], fetchAlbums);
 
   return (
     <article>

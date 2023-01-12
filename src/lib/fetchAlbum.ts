@@ -14,7 +14,7 @@ interface AlbumsResponse {
   };
 }
 
-export const getSingleAlbum = async (albumId: string): Promise<Album> => {
+export const fetchAlbum = async (albumId: string): Promise<Album> => {
   const res = await axios.get<AlbumsResponse>(
     `${WEB_API_BASE_URL}/albums/${albumId}`
   );
