@@ -1,5 +1,5 @@
 import { Routes, Route, HashRouter } from "react-router-dom";
-import { Layout } from "./components/page/utility/Layout/Layout";
+import { Layout } from "./components/common/Layout";
 import { AlbumListPage, AlbumDetailPage, UndefinedPage } from "./pages";
 
 export const Router: React.FC = () => {

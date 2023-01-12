@@ -3,7 +3,7 @@
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { ComponentProps } from "react";
 import { Component } from "./AlbumListItem";
-import { mockAlbums } from "../mocks/mockData";
+import { mockAlbums } from "../../../../mocks/mockData";
 import { MemoryRouter } from "react-router-dom";
 
 export default {

@@ -1,28 +1,7 @@
 import { Link } from "react-router-dom";
-import { Album } from "../types";
-import style from "styled-components";
-import { AltImageFile, MIN_WIDTH } from "../constants";
-
-const List = style.li`
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  margin: 8px auto;
-
-  @media (min-width: ${MIN_WIDTH}) {
-    margin: "0px 16px 32px 16px";
-  }
-`;
-const Img = style.img({
-  width: "100%",
-  margin: "0 auto",
-});
-const Title = style.p({
-  color: "#fff",
-  textAlign: "left",
-  paddingTop: "4px",
-  margin: 0,
-});
+import { AltImageFile } from "../../../../constants";
+import { Album } from "../../../../types";
+import { List, Img, Title } from "./styles";
 
 type ComponentProps = {
   handleClickAlbum: () => void;

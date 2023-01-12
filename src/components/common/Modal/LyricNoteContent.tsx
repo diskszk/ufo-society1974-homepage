@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { Content, LyricNote } from "./styles";
-import { Button } from "../CustomButton";
+import { Button } from "../../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStore, ModalStatus, Song } from "../../types";
-import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
+import { RootStore, ModalStatus, Song } from "../../../types";
+import { CreateCloseModalAction } from "../../../store/ModalStatusReducer";
 import styled from "styled-components";
-import { MIN_WIDTH } from "../../constants";
+import { MIN_WIDTH } from "../../../constants";
 
 const CustomH3 = styled.h3({
   marginBottom: 20,

@@ -5,8 +5,8 @@ import { Component as ModalWrapper } from ".";
 import { Component as ErrorModalContent } from "./ErrorModalContent";
 import { Component as LyricNoteContent } from "./LyricNoteContent";
 import { LoadingModalContent } from "./LoadingModalContent";
-import { mockSongs } from "../../mocks/mockData";
-import { Song } from "../../types";
+import { mockSongs } from "../../../mocks/mockData";
+import { Song } from "../../../types";
 
 export default {
   title: "components/modals",

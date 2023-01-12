@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { Content } from "./styles";
-import { Button } from "../CustomButton";
+import { Button } from "../../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
-import { ModalStatus, RootStore } from "../../types";
-import { CreateCloseModalAction } from "../../store/ModalStatusReducer";
+import { ModalStatus, RootStore } from "../../../types";
+import { CreateCloseModalAction } from "../../../store/ModalStatusReducer";
 import { useNavigate } from "react-router-dom";
 
 type ComponentProps = {

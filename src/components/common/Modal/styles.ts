@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MIN_WIDTH } from "../../constants";
+import { MIN_WIDTH } from "../../../constants";
 
 // 画面全体を覆う設定
 export const Container = styled.div({

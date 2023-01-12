@@ -4,7 +4,7 @@ import { LoadingModalContent } from "./LoadingModalContent";
 import { ErrorModalContent } from "./ErrorModalContent";
 import { LyricNoteContent } from "./LyricNoteContent";
 import { useSelector } from "react-redux";
-import { RootStore, ModalStatus } from "../../types";
+import { RootStore, ModalStatus } from "../../../types";
 
 type ComponentProps = {
   children: ReactNode;
