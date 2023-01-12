@@ -10,7 +10,7 @@
     "deploy": "yarn build && firebase deploy --only hosting",
     "test": "vitest run",
     "lint": "eslint --ext .tsx,.ts ./src/",
-    "storybook": "start-storybook -s -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome"
