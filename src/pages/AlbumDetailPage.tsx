@@ -1,40 +1,27 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { PageHeader, AlbumImage, Description, Container } from "./styles";
-import ServiceList from "../components/ServiceList";
-import SongListTable from "../components/SongListTable";
-import { getSongs } from "../lib/getSongsAPI";
+import { StyledHeading } from "./styles";
+import { fetchAlbum, fetchSongs } from "../lib";
 import { useFetch } from "../hooks/useFetch";
-import { getSingleAlbum } from "../lib/getSingleAlbumAPI";
+import { SongListTable } from "../components/model/songs/SongListTable";
+import { AlbumDisplay } from "../components/model/albums/AlbumDisplay";
 
-const AlbumDetailPage: React.FC = () => {
+export const AlbumDetailPage: React.FC = () => {
   const location = useLocation();
   const albumId = location.pathname.split("/")[2];
 
   const { data: album } = useFetch(["album", albumId], () =>
-    getSingleAlbum(albumId)
+    fetchAlbum(albumId)
   );
 
-  const { data: songs } = useFetch(["songs"], () => getSongs(albumId));
+  const { data: songs } = useFetch(["songs"], () => fetchSongs(albumId));
 
   return (
     <article className="space-bottom">
-      <PageHeader>{album?.title}</PageHeader>
-      <Container>
-        <AlbumImage src={album?.imageFile.path} alt={album?.title} />
-        {album?.publishPlatform && (
-          <ServiceList services={album?.publishPlatform} />
-        )}
-        {album?.description !== "" && (
-          <Description>{album?.description}</Description>
-        )}
-      </Container>
-
-      {songs && songs.length > 0 && <SongListTable songs={songs} />}
+      <StyledHeading>{album?.title}</StyledHeading>
+      {album && <AlbumDisplay album={album} />}
+      {songs && <SongListTable songs={songs} />}
       <br />
       <Link to="/">もどる</Link>
     </article>
   );
 };
-
-export default AlbumDetailPage;

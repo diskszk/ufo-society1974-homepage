@@ -14,7 +14,8 @@
     "@typescript-eslint",
     "testing-library",
     "react-hooks",
-    "vitest"
+    "vitest",
+    "import"
   ],
   "extends": [
     "eslint:recommended",
@@ -25,7 +26,8 @@
     "plugin:testing-library/react",
     "plugin:prettier/recommended",
     "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:import/warnings"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -58,7 +60,8 @@
         "singleQuote": false,
         "semi": true
       }
-    ]
+    ],
+    "import/no-default-export": "error"
   },
   "ignorePatterns": [".eslintrc.*", "*.config.*", ".firebaserc"]
 }

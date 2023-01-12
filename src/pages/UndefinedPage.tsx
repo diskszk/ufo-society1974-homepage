@@ -1,19 +1,12 @@
-import React from "react";
-import style from "styled-components";
+import { StyledHeading, StyledErrorParagraph } from "./styles";
 
-const H1 = style.h1({
-  fontSize: "2em",
-});
-const Message = style.p({
-  color: "#eee",
-});
-const UndefinedPage: React.FC = () => {
+export const UndefinedPage: React.FC = () => {
   return (
     <div>
-      <H1>404 Page Not Found</H1>
-      <Message>お探しのページは見つかりませんでした。</Message>
+      <StyledHeading>404 Page Not Found</StyledHeading>
+      <StyledErrorParagraph>
+        お探しのページは見つかりませんでした。
+      </StyledErrorParagraph>
     </div>
   );
 };
-
-export default UndefinedPage;
