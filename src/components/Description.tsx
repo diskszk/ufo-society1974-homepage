@@ -1,15 +1,12 @@
-import styled from "styled-components";
-
-const Container = styled.div({});
-
 type Props = {
   description: string;
 };
 
+// TODO: ファイルを消す
 export const Description: React.FC<Props> = ({ description }) => {
   return (
-    <Container>
+    <div>
       <p>{description}</p>
-    </Container>
+    </div>
   );
 };

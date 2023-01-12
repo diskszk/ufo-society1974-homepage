@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MIN_WIDTH } from "../../../../constants";
 
-export const Ul = styled.ul`
+export const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
   width: 75%;

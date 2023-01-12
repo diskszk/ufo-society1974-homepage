@@ -10,12 +10,12 @@ import {
   Paper,
   tableCellClasses,
 } from "@mui/material";
-import style from "styled-components";
+import styled from "styled-components";
 import { Song } from "../types";
 import { openLyricNote } from "../store/ModalStatusReducer";
-import { styled } from "@mui/material/styles";
+import { styled as muiStyled } from "@mui/material/styles";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
+const StyledTableCell = muiStyled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
@@ -25,7 +25,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = muiStyled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
@@ -34,7 +34,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const Anchor = style.a({
+const Anchor = styled.a({
   color: "#444",
   cursor: "pointer",
 });

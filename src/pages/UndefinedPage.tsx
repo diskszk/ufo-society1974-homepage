@@ -1,14 +1,12 @@
-import style from "styled-components";
-import { PageHeader } from "./styles";
+import { StyledHeading, StyledErrorParagraph } from "./styles";
 
-const Message = style.p({
-  color: "#eee",
-});
 export const UndefinedPage: React.FC = () => {
   return (
     <div>
-      <PageHeader>404 Page Not Found</PageHeader>
-      <Message>お探しのページは見つかりませんでした。</Message>
+      <StyledHeading>404 Page Not Found</StyledHeading>
+      <StyledErrorParagraph>
+        お探しのページは見つかりませんでした。
+      </StyledErrorParagraph>
     </div>
   );
 };

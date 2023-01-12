@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Content, LyricNote } from "./styles";
+import { StyledContent, StyledLyricNote } from "./styles";
 import { Button } from "../../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, ModalStatus, Song } from "../../../types";
@@ -27,7 +27,7 @@ type ComponentProps = {
 };
 
 export const Component: React.FC<ComponentProps> = ({ song, handleClose }) => (
-  <Content>
+  <StyledContent>
     <CustomH3>{song.title}</CustomH3>
     {song.songFile.filename !== "" && (
       // 要テスト: storageの楽曲ファイルだけ削除されている場合
@@ -36,16 +36,16 @@ export const Component: React.FC<ComponentProps> = ({ song, handleClose }) => (
         <Spacer />
       </>
     )}
-    <LyricNote>
+    <StyledLyricNote>
       <p className="lyric">{song.lyric}</p>
-    </LyricNote>
+    </StyledLyricNote>
     <CopyRightArea>
       <p>{`Lyrics by    ${song.wordsRights}`}</p>
       <p>{`Composed by  ${song.musicRights}`}</p>
     </CopyRightArea>
     <Spacer />
     <Button label="とじる" handleClick={handleClose} />
-  </Content>
+  </StyledContent>
 );
 
 export const LyricNoteContent: React.FC = () => {

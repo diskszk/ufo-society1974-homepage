@@ -1,11 +1,11 @@
 import { CircularProgress } from "@mui/material";
-import { Content } from "./styles";
+import { StyledContent } from "./styles";
 
 export const LoadingModalContent: React.FC = () => {
   return (
-    <Content>
+    <StyledContent>
       <CircularProgress disableShrink size={80} />
       <p>Loading...</p>
-    </Content>
+    </StyledContent>
   );
 };

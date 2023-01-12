@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MIN_WIDTH } from "../../../../constants";
 
-export const List = styled.li`
+export const StyledList = styled.li`
   display: flex;
   flex-direction: column;
   max-width: 400px;
@@ -12,12 +12,12 @@ export const List = styled.li`
   }
 `;
 
-export const Img = styled.img({
+export const StyledImage = styled.img({
   width: "100%",
   margin: "0 auto",
 });
 
-export const Title = styled.p({
+export const StyledParagraph = styled.p({
   color: "#fff",
   textAlign: "left",
   paddingTop: "4px",

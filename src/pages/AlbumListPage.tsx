@@ -1,4 +1,4 @@
-import { PageHeader } from "./styles";
+import { StyledHeading } from "./styles";
 import { fetchAlbums } from "../lib";
 import { useFetch } from "../hooks/useFetch";
 import { AlbumList } from "../components/model/albums/AlbumList";
@@ -8,7 +8,7 @@ export const AlbumListPage: React.FC = () => {
 
   return (
     <article>
-      <PageHeader>UFO societyの楽曲</PageHeader>
+      <StyledHeading>UFO societyの楽曲</StyledHeading>
       {albums && <AlbumList albums={albums} />}
       <br />
     </article>

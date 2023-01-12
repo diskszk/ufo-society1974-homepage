@@ -1,4 +1,4 @@
-import { CustomButton, CustomSpan } from "./styles";
+import { StyledButton, StyledSpan } from "./styles";
 
 type Props = {
   label: string;
@@ -7,8 +7,8 @@ type Props = {
 
 export const Button: React.FC<Props> = ({ label, handleClick }) => {
   return (
-    <CustomButton onClick={handleClick}>
-      <CustomSpan>{label}</CustomSpan>
-    </CustomButton>
+    <StyledButton onClick={handleClick}>
+      <StyledSpan>{label}</StyledSpan>
+    </StyledButton>
   );
 };

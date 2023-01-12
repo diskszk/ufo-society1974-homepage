@@ -1,5 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
-import { PageHeader, AlbumImage, Description, Container } from "./styles";
+import {
+  StyledHeading,
+  StyledImage,
+  StyledParagraph,
+  StyledContainer,
+} from "./styles";
 import { ServiceList } from "../components/ServiceList";
 import { SongListTable } from "../components/SongListTable";
 import { useFetch } from "../hooks/useFetch";
@@ -17,16 +22,16 @@ export const AlbumDetailPage: React.FC = () => {
 
   return (
     <article className="space-bottom">
-      <PageHeader>{album?.title}</PageHeader>
-      <Container>
-        <AlbumImage src={album?.imageFile.path} alt={album?.title} />
+      <StyledHeading>{album?.title}</StyledHeading>
+      <StyledContainer>
+        <StyledImage src={album?.imageFile.path} alt={album?.title} />
         {album?.publishPlatform && (
           <ServiceList services={album?.publishPlatform} />
         )}
         {album?.description !== "" && (
-          <Description>{album?.description}</Description>
+          <StyledParagraph>{album?.description}</StyledParagraph>
         )}
-      </Container>
+      </StyledContainer>
 
       {songs && songs.length > 0 && <SongListTable songs={songs} />}
       <br />

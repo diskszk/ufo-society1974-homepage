@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { MIN_WIDTH } from "../../../constants";
 
 // 画面全体を覆う設定
-export const Container = styled.div({
+export const StyledContainer = styled.div({
   position: "fixed",
   top: 0,
   left: 0,
@@ -16,7 +16,7 @@ export const Container = styled.div({
   overflow: "auto",
 });
 
-export const Modal = styled.div({
+export const StyledModal = styled.div({
   position: "absolute",
   top: "30%",
   marginBottom: "48px",
@@ -27,12 +27,12 @@ export const Modal = styled.div({
   borderRadius: "16px",
 });
 
-export const Content = styled.div({
+export const StyledContent = styled.div({
   margin: "52px 0",
   whiteSpace: "pre-wrap",
 });
 
-export const LyricNote = styled.div`
+export const StyledLyricNote = styled.div`
   white-space: pre-wrap;
   text-align: left;
 

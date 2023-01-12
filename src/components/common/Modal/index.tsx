@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Container, Modal } from "./styles";
+import { StyledContainer, StyledModal } from "./styles";
 import { LoadingModalContent } from "./LoadingModalContent";
 import { ErrorModalContent } from "./ErrorModalContent";
 import { LyricNoteContent } from "./LyricNoteContent";
@@ -10,9 +10,9 @@ type ComponentProps = {
   children: ReactNode;
 };
 export const Component: React.FC<ComponentProps> = ({ children }) => (
-  <Container>
-    <Modal>{children}</Modal>
-  </Container>
+  <StyledContainer>
+    <StyledModal>{children}</StyledModal>
+  </StyledContainer>
 );
 
 // ErrorMessage / LyricNote / Loading...

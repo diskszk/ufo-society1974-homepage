@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Content } from "./styles";
+import { StyledContent } from "./styles";
 import { Button } from "../../CustomButton";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalStatus, RootStore } from "../../../types";
@@ -15,11 +15,11 @@ export const Component: React.FC<ComponentProps> = ({
   handleClickClose,
   errorMessage,
 }) => (
-  <Content>
+  <StyledContent>
     <h3>{errorMessage}</h3>
     <br />
     <Button label="とじる" handleClick={handleClickClose} />
-  </Content>
+  </StyledContent>
 );
 
 export const ErrorModalContent: React.FC = () => {

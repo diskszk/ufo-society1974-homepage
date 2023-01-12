@@ -1,6 +1,6 @@
-import style from "styled-components";
+import styled from "styled-components";
 
-export const CustomButton = style.button({
+export const StyledButton = styled.button({
   border: "1px solid #222",
   borderRadius: "4px",
   cursor: "pointer",
@@ -11,7 +11,7 @@ export const CustomButton = style.button({
   backgroundColor: "#eee",
 });
 
-export const CustomSpan = style.span({
+export const StyledSpan = styled.span({
   display: "block",
   textAlign: "center",
 });

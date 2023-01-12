@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AltImageFile } from "../../../../constants";
 import { Album } from "../../../../types";
-import { List, Img, Title } from "./styles";
+import { StyledList, StyledImage, StyledParagraph } from "./styles";
 
 type ComponentProps = {
   handleClickAlbum: () => void;
@@ -11,12 +11,12 @@ export const Component: React.FC<ComponentProps> = ({
   handleClickAlbum,
   album,
 }) => (
-  <List onClick={handleClickAlbum} data-testid="loaded">
+  <StyledList onClick={handleClickAlbum} data-testid="loaded">
     <Link to={`/detail/${album.id}`}>
-      <Img src={album.imageFile.path} alt={album.title} />
-      <Title>{album.title}</Title>
+      <StyledImage src={album.imageFile.path} alt={album.title} />
+      <StyledParagraph>{album.title}</StyledParagraph>
     </Link>
-  </List>
+  </StyledList>
 );
 
 type Props = {
