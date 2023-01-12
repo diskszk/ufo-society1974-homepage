@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { StyledContent } from "./styles";
-import { Button } from "../../CustomButton";
+import { Button } from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalStatus, RootStore } from "../../../types";
 import { CreateCloseModalAction } from "../../../store/ModalStatusReducer";

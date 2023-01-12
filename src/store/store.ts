@@ -1,9 +1,4 @@
-import {
-  createStore as reduxCreateStore,
-  combineReducers,
-  // applyMiddleware,
-} from "redux";
-// import logger from "redux-logger";
+import { createStore as reduxCreateStore, combineReducers } from "redux";
 import { LoadingStatusReducer } from "./LoadingStatusReducer";
 import { ModalStatusReducer } from "./ModalStatusReducer";
 
@@ -13,7 +8,6 @@ const createStore = () => {
       loadingStatus: LoadingStatusReducer,
       modalStatus: ModalStatusReducer,
     })
-    // applyMiddleware(logger)
   );
 };
 
