@@ -1,20 +1,24 @@
 // TODO: styled -> emotion 化
 
 import { Table, TableBody, TableContainer, Paper } from "@mui/material";
-import { Song } from "../../../../types";
+import { AlbumInfo } from "../../../../types";
 import { SongListTableRow } from "../SongListTableRow";
 
 type ComponentProps = {
-  songs: Song[];
+  albumInfo: AlbumInfo;
 };
 
-export const SongListTable: React.FC<ComponentProps> = ({ songs }) => (
+export const SongListTable: React.FC<ComponentProps> = ({ albumInfo }) => (
   // 子コンポーネントにmarginをもたせたくない
   <TableContainer sx={{ width: "80%", m: "0 auto" }} component={Paper}>
     <Table aria-label="customized table">
       <TableBody data-testid="loaded">
-        {songs.map((song) => (
-          <SongListTableRow song={song} key={song.id} />
+        {albumInfo.songSummaries.map((songSummary) => (
+          <SongListTableRow
+            albumId={albumInfo.albumId}
+            songSummary={songSummary}
+            key={songSummary.id}
+          />
         ))}
       </TableBody>
     </Table>

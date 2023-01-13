@@ -1,25 +1,21 @@
 import axios from "axios";
 import { NO_IMAGE_PATH, WEB_API_BASE_URL } from "../constants";
-import { Album } from "../types";
+import { Album, AlbumInfo } from "../types";
 
 interface AlbumsResponse {
   albums: Album[];
-  info: {
-    albumId: string;
-    songSummaries: {
-      id: string;
-      title: string;
-      story: string;
-    }[];
-  };
+  info: AlbumInfo;
 }
 
-export const fetchAlbum = async (albumId: string): Promise<Album> => {
+export const fetchAlbum = async (
+  albumId: string
+): Promise<{ album: Album; info: AlbumInfo }> => {
   const res = await axios.get<AlbumsResponse>(
     `${WEB_API_BASE_URL}/albums/${albumId}`
   );
 
   const album = res.data.albums[0];
+  const info = res.data.info;
 
   if (!album.imageFile) {
     album.imageFile = {
@@ -28,5 +24,5 @@ export const fetchAlbum = async (albumId: string): Promise<Album> => {
     };
   }
 
-  return album;
+  return { album, info };
 };

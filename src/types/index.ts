@@ -23,6 +23,13 @@ export type Song = {
   musicRights: string;
 };
 
+export type SongSummary = Pick<Song, "id" | "title" | "story">;
+
+export type AlbumInfo = {
+  albumId: string;
+  songSummaries: SongSummary[];
+};
+
 export type PublishPlatform = {
   AppleMusic: string;
   Spotify: string;
@@ -44,7 +51,6 @@ export type LoadingStatus = {
 };
 export type ModalStatus = {
   isOpen: boolean;
-  modalType: "LYRIC_NOTE" | "ERROR" | "LOADING" | "";
+  modalType: "ERROR" | "LOADING" | "";
   errorMessage: string;
-  song: Song;
 };

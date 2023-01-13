@@ -12,17 +12,5 @@ export const initialState: RootStore = {
     isOpen: false,
     modalType: "",
     errorMessage: "",
-    song: {
-      id: "",
-      lyric: "",
-      songFile: {
-        filename: "",
-        path: "",
-      },
-      story: "",
-      title: "",
-      wordsRights: "",
-      musicRights: "",
-    },
   },
 };
