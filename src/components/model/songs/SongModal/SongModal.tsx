@@ -1,8 +1,13 @@
 import { Button } from "../../../ui/Button";
 import { Song } from "../../../../types";
 import { Component as ModalWrapper } from "../../../common/Modal";
-import { StyledContent, StyledLyricNote } from "../../../common/Modal/styles";
-import { StyledCopyRightArea, StyledSpace, StyledSubHeading } from "./styles";
+import { StyledContent } from "../../../common/Modal/styles";
+import {
+  StyledCopyRightArea,
+  StyledSpace,
+  StyledSubHeading,
+  StyledLyricNote,
+} from "./styles";
 import { useCallback } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 

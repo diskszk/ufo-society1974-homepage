@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import { StyledContainer, StyledModal } from "./styles";
 import { LoadingModalContent } from "./LoadingModalContent";
 import { ErrorModalContent } from "./ErrorModalContent";
-import { LyricNoteContent } from "./LyricNoteContent";
 import { useSelector } from "react-redux";
 import { RootStore, ModalStatus } from "../../../types";
 
@@ -31,12 +30,6 @@ export const ModalWrapper: React.FC = () => {
     return (
       <Component>
         <LoadingModalContent />
-      </Component>
-    );
-  } else if (modalType === "LYRIC_NOTE") {
-    return (
-      <Component>
-        <LyricNoteContent />
       </Component>
     );
   } else {

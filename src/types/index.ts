@@ -51,8 +51,6 @@ export type LoadingStatus = {
 };
 export type ModalStatus = {
   isOpen: boolean;
-  modalType: "LYRIC_NOTE" | "ERROR" | "LOADING" | "";
+  modalType: "ERROR" | "LOADING" | "";
   errorMessage: string;
-  albumId: string;
-  songId: string;
 };

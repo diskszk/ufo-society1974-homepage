@@ -3,10 +3,7 @@
 import { ComponentMeta } from "@storybook/react";
 import { Component as ModalWrapper } from ".";
 import { Component as ErrorModalContent } from "./ErrorModalContent";
-import { Component as LyricNoteContent } from "./LyricNoteContent";
 import { LoadingModalContent } from "./LoadingModalContent";
-import { mockSongs } from "../../../mocks/mockData";
-import { Song } from "../../../types";
 
 export default {
   title: "components/modals",
@@ -28,30 +25,6 @@ export const LoadingModal = () => {
   return (
     <ModalWrapper>
       <LoadingModalContent />
-    </ModalWrapper>
-  );
-};
-
-export const LyricNote_ExistsSong = () => {
-  return (
-    <ModalWrapper>
-      <LyricNoteContent song={mockSongs[0]} handleClose={() => void 0} />
-    </ModalWrapper>
-  );
-};
-
-export const LyricNote_NotExistsSong = () => {
-  const song: Song = {
-    ...mockSongs[0],
-    songFile: {
-      filename: "",
-      path: "",
-    },
-  };
-
-  return (
-    <ModalWrapper>
-      <LyricNoteContent song={song} handleClose={() => void 0} />
     </ModalWrapper>
   );
 };
