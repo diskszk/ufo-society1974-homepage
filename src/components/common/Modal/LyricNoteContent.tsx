@@ -6,6 +6,8 @@ import { RootStore, ModalStatus, Song } from "../../../types";
 import { CreateCloseModalAction } from "../../../store/ModalStatusReducer";
 import styled from "styled-components";
 import { MIN_WIDTH } from "../../../constants";
+import { useFetch } from "../../../hooks/useFetch";
+import { fetchSong } from "../../../lib";
 
 const CustomH3 = styled.h3({
   marginBottom: 20,
@@ -50,13 +52,17 @@ export const Component: React.FC<ComponentProps> = ({ song, handleClose }) => (
 
 export const LyricNoteContent: React.FC = () => {
   const dispatch = useDispatch();
-  const { song } = useSelector<RootStore, ModalStatus>(
+  const { albumId, songId } = useSelector<RootStore, ModalStatus>(
     (state) => state.modalStatus
+  );
+
+  const { data: song } = useFetch<Song>(["song", songId], () =>
+    fetchSong(albumId, songId)
   );
 
   const handleClose = useCallback(() => {
     dispatch(CreateCloseModalAction());
-  }, []);
+  }, [dispatch]);
 
-  return <Component song={song} handleClose={handleClose} />;
+  return <>{song && <Component song={song} handleClose={handleClose} />}</>;
 };

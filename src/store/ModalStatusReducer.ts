@@ -1,4 +1,4 @@
-import { ModalStatus, Song } from "../types";
+import { ModalStatus } from "../types";
 import { initialState } from "./initialState";
 
 const CLOSE_MODAL = "CLOSE_MODAL",
@@ -22,7 +22,7 @@ type FailRequestAction = {
 };
 type OpenLyricNoteAction = {
   type: typeof OPEN_LYRIC_NOTE;
-  payload: Song;
+  payload: { albumId: string; songId: string };
 };
 
 type ModalStatusActionTypes =
@@ -55,10 +55,13 @@ export const createFailRequestAction = (
     payload: errorMessage,
   };
 };
-export const openLyricNote = (song: Song): ModalStatusActionTypes => {
+export const openLyricNote = (
+  albumId: string,
+  songId: string
+): ModalStatusActionTypes => {
   return {
     type: OPEN_LYRIC_NOTE,
-    payload: { ...song },
+    payload: { albumId, songId },
   };
 };
 export const ModalStatusReducer = (
@@ -97,7 +100,8 @@ export const ModalStatusReducer = (
         ...state,
         isOpen: true,
         modalType: "LYRIC_NOTE",
-        song: action.payload,
+        albumId: action.payload.albumId,
+        songId: action.payload.songId,
       };
 
     default:

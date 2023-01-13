@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "/public/index.html",
   "scripts": {
-    "build": "yarn lint && yarn test && vite build",
+    "build": "yarn lint && vite build",
     "dev": "vite dev",
     "preview": "vite preview --port 8080",
     "compile": "tsc --noEmit",

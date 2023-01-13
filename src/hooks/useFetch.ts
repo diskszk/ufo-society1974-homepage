@@ -14,7 +14,7 @@ export function useFetch<T>(
 } {
   const dispatch = useDispatch();
 
-  const { data, isLoading, isError } = useQuery([...queryKey], queyFn);
+  const { data, isLoading, isError } = useQuery<T>([...queryKey], queyFn);
 
   if (isLoading) {
     dispatch(createStartRequestAction());
