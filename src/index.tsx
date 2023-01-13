@@ -4,7 +4,7 @@ import { App } from "./App";
 import { worker } from "./mocks/browser";
 
 if (process.env.NODE_ENV === "development") {
-  void worker.start();
+  void worker.start({ onUnhandledRequest: "bypass" });
 }
 const container = document.getElementById("app");
 
