@@ -1,4 +1,4 @@
-import { NO_IMAGE_PATH } from "../constants";
+import { ALT_IMAGE_PATH } from "../constants";
 import { Album, Song } from "../types";
 import kite from "../../mock-song-data/01_kite.mp3";
 
@@ -7,7 +7,7 @@ export const mockAlbums: Album[] = [
     id: "album-id-01",
     description: "description-01",
     imageFile: {
-      path: NO_IMAGE_PATH,
+      path: ALT_IMAGE_PATH,
       filename: "no_image",
     },
     publishedDate: "1995-02-03",
@@ -17,7 +17,7 @@ export const mockAlbums: Album[] = [
     id: "album-id-02",
     description: "description-02",
     imageFile: {
-      path: NO_IMAGE_PATH,
+      path: ALT_IMAGE_PATH,
       filename: "no_image",
     },
     publishedDate: "2000-12-23",
