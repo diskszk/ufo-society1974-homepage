@@ -27,16 +27,6 @@ export const handlers = [
     );
   }),
 
-  // 存在しないAPI
-  rest.get(`${WEB_API_BASE_URL}/albums/:albumId/songs`, (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        songs: mockSongs,
-      })
-    );
-  }),
-
   rest.get(
     `${WEB_API_BASE_URL}/albums/:albumId/songs/:songId`,
     (req, res, ctx) => {

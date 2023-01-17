@@ -14,5 +14,9 @@
     "types": ["vite/client", "vitest/globals"]
   },
   "include": ["./src/**/*"],
-  "exclude": ["./src/?(*.)+(spec|test).+(ts|tsx|js)", "node_modules"]
+  "exclude": [
+    "./src/?(*.)+(spec|test).+(ts|tsx|js)",
+    "./node_modules",
+    "./mock-song-data"
+  ]
 }

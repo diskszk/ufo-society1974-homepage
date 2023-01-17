@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { AltImageFile } from "../../../../constants";
 import { Album } from "../../../../types";
 import { StyledList, StyledImage, StyledParagraph } from "./styles";
 
@@ -22,15 +21,7 @@ export const Component: React.FC<ComponentProps> = ({
 type Props = {
   album: Album;
 };
-export const AlbumListItem: React.FC<Props> = (props) => {
-  let album: Album;
-
-  if (props.album.imageFile === null) {
-    album = { ...props.album, imageFile: AltImageFile };
-  } else {
-    album = { ...props.album };
-  }
-
+export const AlbumListItem: React.FC<Props> = ({ album }) => {
   // const navigate = useNavigate();
   const handleClickAlbum = () => {
     // navigate(`/detail/${album.id}`);
