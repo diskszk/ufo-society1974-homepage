@@ -1,4 +1,5 @@
 import { useQuery, QueryFunction } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   createStartRequestAction,
@@ -16,12 +17,6 @@ export function useFetch<T>(
 
   const { data, isLoading, isError } = useQuery<T>([...queryKey], queyFn);
 
-  if (isLoading) {
-    dispatch(createStartRequestAction());
-  } else {
-    dispatch(createSuccessRequestAction());
-  }
-
   if (isError) {
     dispatch(
       createFailRequestAction(
@@ -29,5 +24,14 @@ export function useFetch<T>(
       )
     );
   }
+
+  useEffect(() => {
+    if (isLoading) {
+      dispatch(createStartRequestAction());
+    } else {
+      dispatch(createSuccessRequestAction());
+    }
+  }, [dispatch, isLoading]);
+
   return { data };
 }
