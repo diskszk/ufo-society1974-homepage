@@ -69,7 +69,6 @@ index.min.js.LICENSE.txt
 dist/
 firebase-debug.log
 coverage
-mock-song-data
 
 cypress/downloads
 cypress/videos
