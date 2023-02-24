@@ -1,6 +1,8 @@
 import { ALT_IMAGE_PATH } from "../constants";
 import { Album, Song } from "../types";
-import kite from "../../mock-song-data/01_kite.mp3";
+
+// https://amachamusic.chagasi.com/ から拝借
+import sampleMP3 from "./sample-mp3-data/natsuyasuminotanken.mp3";
 
 export const mockAlbums: Album[] = [
   {
@@ -54,8 +56,8 @@ export const mockSongs: Song[] = [
     id: "1",
     lyric: lyric.kite,
     songFile: {
-      path: kite,
-      filename: "01_kite.mp3",
+      path: sampleMP3,
+      filename: "natsuyasuminotanken.mp3",
     },
     story: "song-story-01",
     title: "ソングタイトル01",
