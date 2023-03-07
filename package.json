@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "/public/index.html",
   "scripts": {
-    "build": "yarn lint && vite build",
+    "build": "yarn lint && vite build && yarn copy:scripts ",
     "dev": "vite dev",
     "preview": "vite preview --port 8080",
     "compile": "tsc --noEmit",
@@ -13,7 +13,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome"
+    "cy:run": "cypress run --browser chrome",
+    "copy:scripts": "node -e \"require('fs-extra').copySync('./scripts', './dist/scripts')\""
   },
   "repository": {
     "type": "git",
