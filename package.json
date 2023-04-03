@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "/public/index.html",
   "scripts": {
-    "build": "yarn lint && vite build && yarn copy:scripts ",
+    "build": "yarn lint && vite build",
     "dev": "vite dev",
     "preview": "vite preview --port 8080",
     "compile": "tsc --noEmit",
@@ -13,8 +13,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome",
-    "copy:scripts": "node -e \"require('fs-extra').copySync('./scripts', './dist/scripts')\""
+    "cy:run": "cypress run --browser chrome"
   },
   "repository": {
     "type": "git",
@@ -75,7 +74,6 @@
     "vite": "^3.2.2",
     "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-html": "^3.2.0",
     "vitest": "^0.24.5"
   },
   "dependencies": {

@@ -1,5 +1,3 @@
-"use strict";
-
 const timer = 40000; // 40sec
 function handleReplay() {
   location.reload();
@@ -10,7 +8,15 @@ function createReplayButton() {
   replayButton.textContent = "もう一度見る";
   replayButton.onclick = handleReplay;
 
-  document.getElementById("replay-button").appendChild(replayButton);
+  const el = document.querySelector<HTMLButtonElement>("#replay-button");
+
+  if (!el) {
+    throw new Error("Can not find the element");
+  }
+
+  el.appendChild(replayButton);
 }
 
 setTimeout(createReplayButton, timer);
+
+export {};
