@@ -3,7 +3,6 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import { createHtmlPlugin } from "vite-plugin-html";
 import env from "vite-plugin-env-compatible";
 
 export default defineConfig({
@@ -11,11 +10,6 @@ export default defineConfig({
     react(),
     // eslint(),
     env({ prefix: "VITE", mountedPath: "process.env" }),
-    createHtmlPlugin({
-      minify: true,
-      entry: "src/index.tsx",
-      template: "index.html",
-    }),
   ],
   server: {
     host: true,

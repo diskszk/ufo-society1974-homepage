@@ -1,13 +1,18 @@
-"use strict";
+import { WEB_API_BASE_URL } from "../constants";
+import { worker } from "../mocks/browser";
+
+const url = `${WEB_API_BASE_URL}/access/count`;
 
 // DOM操作定義
-const displayCount = (count) => {
-  const counter = document.getElementById("accessCounter");
-  counter.innerHTML = count;
-};
+const displayCount = (count: number) => {
+  const el = document.querySelector<HTMLSpanElement>("#access-counter");
 
-const url =
-  "https://asia-northeast2-ufo-society-1974.cloudfunctions.net/access/count";
+  if (!el) {
+    throw new Error("Can not find the element");
+  }
+
+  el.innerHTML = count.toString();
+};
 
 const fetchCurrentAccessCount = async () => {
   const response = await fetch(url, { method: "GET" });
@@ -22,7 +27,9 @@ const incrementAccessCount = async () => {
 
 // DBの値を取得-> update関数に渡す -> DOM操作実行
 const listenData = async () => {
-  // TODO: 開発時にupdateしないようにする-> serverのcors設定すれば行けそう
+  if (process.env.NODE_ENV === "development") {
+    void worker.start({ onUnhandledRequest: "bypass" });
+  }
 
   try {
     const currentAccessCount = await fetchCurrentAccessCount();
