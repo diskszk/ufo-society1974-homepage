@@ -32,9 +32,8 @@ export const ErrorModalContent: React.FC = () => {
   const handleClickClose = useCallback(() => {
     dispatch(CreateCloseModalAction());
 
-    // TODO: router使う必要なさそう
     navigate(-1);
-  }, []);
+  }, [dispatch, navigate]);
 
   return (
     <Component
