@@ -4,37 +4,26 @@ export type File = {
 };
 
 export type Album = {
-  description: string;
   imageFile: File;
   id: string; // random
   publishedDate: string; // YYYY-MM-DD
   songs?: Song[];
   title: string;
-  publishPlatform?: PublishPlatform;
 };
 
 export type Song = {
   id: string;
   lyric: string;
-  songFile: File;
-  story: string;
   title: string;
   wordsRights: string;
   musicRights: string;
 };
 
-export type SongSummary = Pick<Song, "id" | "title" | "story">;
+export type SongSummary = Pick<Song, "id" | "title">;
 
 export type AlbumInfo = {
   albumId: string;
   songSummaries: SongSummary[];
-};
-
-export type PublishPlatform = {
-  AppleMusic: string;
-  Spotify: string;
-  iTunes: string;
-  Bandcamp: string;
 };
 
 // redux

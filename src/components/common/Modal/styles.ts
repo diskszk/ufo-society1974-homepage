@@ -16,7 +16,6 @@ export const StyledContainer = styled.div({
 });
 
 export const StyledModal = styled.div({
-  position: "absolute",
   top: "30%",
   marginBottom: "48px",
   width: "80%",
