@@ -18,3 +18,14 @@ export const StyledImage = styled.img`
     width: 300px;
   }
 `;
+
+export const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+`;
+
+export const StyledAnchor = styled.a`
+  display: flex;
+  align-items: center;
+`;
