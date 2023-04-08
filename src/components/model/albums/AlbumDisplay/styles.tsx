@@ -11,16 +11,10 @@ export const StyledContainer = styled.div`
   }
 `;
 export const StyledImage = styled.img`
-  width: 100%;
+  width: 66%;
+  padding-bottom: 12px;
 
   @media (min-width: ${MIN_WIDTH}) {
     width: 300px;
   }
 `;
-
-export const StyledParagraph = styled.p({
-  backgroundColor: "rgba(238, 238, 238, .9)",
-  textAlign: "left",
-  padding: 8,
-  borderRadius: "4px",
-});

@@ -19,13 +19,6 @@ type ComponentProps = {
 export const Component: React.FC<ComponentProps> = ({ song, handleClose }) => (
   <StyledContent>
     <StyledSubHeading>{song.title}</StyledSubHeading>
-    {song.songFile.filename !== "" && (
-      // 要テスト: storageの楽曲ファイルだけ削除されている場合
-      <>
-        <audio controls controlsList="nodownload" src={song.songFile.path} />
-        <StyledSpace />
-      </>
-    )}
     <StyledLyricNote>
       <p className="lyric">{song.lyric}</p>
     </StyledLyricNote>

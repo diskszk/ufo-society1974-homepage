@@ -49,13 +49,11 @@ export const SongListTableRow: React.FC<Props> = ({ albumId, songSummary }) => {
       >
         {songSummary.id}
       </StyledTableCell>
+      <StyledTableCell>{songSummary.title}</StyledTableCell>
       <StyledTableCell>
         {/* クリックすると歌詞モーダルを表示する */}
-        <StyledAnchor onClick={() => handleClickSong()}>
-          {songSummary.title}
-        </StyledAnchor>
+        <StyledAnchor onClick={() => handleClickSong()}>歌詞</StyledAnchor>
       </StyledTableCell>
-      <StyledTableCell>{songSummary.story}</StyledTableCell>
     </StyledTableRow>
   );
 };

@@ -1,13 +1,9 @@
 import { ALT_IMAGE_PATH } from "../constants";
 import { Album, Song } from "../types";
 
-// https://amachamusic.chagasi.com/ から拝借
-import sampleMP3 from "./sample-mp3-data/natsuyasuminotanken.mp3";
-
 export const mockAlbums: Album[] = [
   {
     id: "album-id-01",
-    description: "description-01",
     imageFile: {
       path: ALT_IMAGE_PATH,
       filename: "no_image",
@@ -17,7 +13,6 @@ export const mockAlbums: Album[] = [
   },
   {
     id: "album-id-02",
-    description: "description-02",
     imageFile: {
       path: ALT_IMAGE_PATH,
       filename: "no_image",
@@ -55,11 +50,6 @@ export const mockSongs: Song[] = [
   {
     id: "1",
     lyric: lyric.kite,
-    songFile: {
-      path: sampleMP3,
-      filename: "natsuyasuminotanken.mp3",
-    },
-    story: "song-story-01",
     title: "ソングタイトル01",
     wordsRights: "XXX XXX",
     musicRights: "YYY YYY",
@@ -67,11 +57,6 @@ export const mockSongs: Song[] = [
   {
     id: "2",
     lyric: lyric.kite,
-    songFile: {
-      path: "",
-      filename: "",
-    },
-    story: "song-story-02",
     title: "ソングタイトル02",
     wordsRights: "XXX XXX",
     musicRights: "YYY YYY",
@@ -79,11 +64,6 @@ export const mockSongs: Song[] = [
   {
     id: "3",
     lyric: lyric.kite,
-    songFile: {
-      path: "",
-      filename: "",
-    },
-    story: "song-story-03",
     title: "ソングタイトル03",
     wordsRights: "XXX XXX",
     musicRights: "YYY YYY",
@@ -96,7 +76,6 @@ export const mockAlbumInfo = {
     return {
       id: song.id,
       title: song.title,
-      story: song.story,
     };
   }),
 };
