@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { StyledContent } from "./styles";
 import { Button } from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,8 +12,8 @@ type ComponentProps = {
 };
 
 export const Component: React.FC<ComponentProps> = ({
-  handleClickClose,
   errorMessage,
+  handleClickClose,
 }) => (
   <StyledContent>
     <h3>{errorMessage}</h3>
@@ -34,6 +34,23 @@ export const ErrorModalContent: React.FC = () => {
 
     navigate(-1);
   }, [dispatch, navigate]);
+
+  const handleKeyDown = useCallback(
+    (ev: KeyboardEvent) => {
+      ev.preventDefault();
+
+      if (ev.key === "Escape") {
+        dispatch(CreateCloseModalAction());
+
+        navigate(-1);
+      }
+    },
+    [dispatch, navigate]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown, false);
+  }, [handleKeyDown]);
 
   return (
     <Component
