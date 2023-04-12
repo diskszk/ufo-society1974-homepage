@@ -10,6 +10,7 @@ export const mockAlbums: Album[] = [
     },
     publishedDate: "1995-02-03",
     title: "テストアルバムタイトル01",
+    bandcampUrl: "https://ufosociety.bandcamp.com/album/3-songs",
   },
   {
     id: "album-id-02",
@@ -19,6 +20,7 @@ export const mockAlbums: Album[] = [
     },
     publishedDate: "2000-12-23",
     title: "テストアルバムタイトル02",
+    bandcampUrl: "",
   },
 ];
 

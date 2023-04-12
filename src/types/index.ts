@@ -9,6 +9,7 @@ export type Album = {
   publishedDate: string; // YYYY-MM-DD
   songs?: Song[];
   title: string;
+  bandcampUrl: string;
 };
 
 export type Song = {
