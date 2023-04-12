@@ -5,7 +5,7 @@ const StyledHeader = styled.header({
 });
 
 export const Header: React.FC = () => {
-  const topPageUrl = "/#";
+  const topPageUrl = "/";
 
   return (
     <StyledHeader>
