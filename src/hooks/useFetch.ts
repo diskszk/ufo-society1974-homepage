@@ -2,9 +2,9 @@ import { useQuery, QueryFunction } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
-  createStartRequestAction,
-  createSuccessRequestAction,
-  createFailRequestAction,
+  createOpenLoadingModalAction,
+  createCloseModalAction,
+  createOpenErrorModalAction,
 } from "../store/ModalStatusReducer";
 
 export function useFetch<T>(
@@ -19,7 +19,7 @@ export function useFetch<T>(
 
   if (isError) {
     dispatch(
-      createFailRequestAction(
+      createOpenErrorModalAction(
         "データの取得に失敗しました。\n通信環境をご確認の上再度お試しください。"
       )
     );
@@ -27,9 +27,9 @@ export function useFetch<T>(
 
   useEffect(() => {
     if (isLoading) {
-      dispatch(createStartRequestAction());
+      dispatch(createOpenLoadingModalAction());
     } else {
-      dispatch(createSuccessRequestAction());
+      dispatch(createCloseModalAction());
     }
   }, [dispatch, isLoading]);
 

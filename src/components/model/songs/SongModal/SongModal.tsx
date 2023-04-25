@@ -1,6 +1,6 @@
 import { Button } from "../../../ui/Button";
 import { Song } from "../../../../types";
-import { Component as ModalWrapper } from "../../../common/Modal";
+import { Component as ModalWrapper } from "../../../common/Modal/ModalWrapper";
 import { StyledContent } from "../../../common/Modal/styles";
 import {
   StyledCopyRightArea,

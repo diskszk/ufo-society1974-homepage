@@ -29,18 +29,13 @@ export type AlbumInfo = {
 
 // redux
 export type RootStore = {
-  loadingStatus: LoadingStatus;
   modalStatus: ModalStatus;
 };
-export type LoadingStatus = {
-  isLoading: boolean;
-  error: {
-    isError: boolean;
-    message: string;
-  };
-};
+
+type ModalType = "ERROR" | "LOADING" | "";
+
 export type ModalStatus = {
   isOpen: boolean;
-  modalType: "ERROR" | "LOADING" | "";
+  modalType: ModalType;
   errorMessage: string;
 };

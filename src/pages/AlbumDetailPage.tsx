@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Song, Album } from "../types";
 import { SongModal } from "../components/model/songs/SongModal";
 import { ALT_IMAGE_PATH } from "../constants";
+import { ModalWrapper } from "../components/common/Modal/ModalWrapper";
 
 export const AlbumDetailPage: React.FC = () => {
   const location = useLocation();
@@ -44,15 +45,18 @@ export const AlbumDetailPage: React.FC = () => {
   }
 
   return (
-    <article className="space-bottom">
-      {modalData.isOpen && modalData.song && (
-        <SongModal song={modalData.song} />
-      )}
-      <StyledHeading>{album?.title}</StyledHeading>
-      {album && <AlbumDisplay album={album} />}
-      {data && <SongListTable albumInfo={data.info} />}
-      <br />
-      <Link to="/">もどる</Link>
-    </article>
+    <>
+      <ModalWrapper />
+      <div className="space-bottom">
+        {modalData.isOpen && modalData.song && (
+          <SongModal song={modalData.song} />
+        )}
+        <StyledHeading>{album?.title}</StyledHeading>
+        {album && <AlbumDisplay album={album} />}
+        {data && <SongListTable albumInfo={data.info} />}
+        <br />
+        <Link to="/">もどる</Link>
+      </div>
+    </>
   );
 };

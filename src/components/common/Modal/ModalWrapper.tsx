@@ -9,16 +9,20 @@ type ComponentProps = {
   children: ReactNode;
 };
 export const Component: React.FC<ComponentProps> = ({ children }) => (
-  <StyledContainer>
+  <StyledContainer data-testid="modal">
     <StyledModal>{children}</StyledModal>
   </StyledContainer>
 );
 
 // ErrorMessage / LyricNote / Loading...
 export const ModalWrapper: React.FC = () => {
-  const { modalType } = useSelector<RootStore, ModalStatus>(
+  const { isOpen, modalType } = useSelector<RootStore, ModalStatus>(
     (state) => state.modalStatus
   );
+
+  if (!isOpen) {
+    return null;
+  }
 
   if (modalType === "ERROR") {
     return (
@@ -33,6 +37,6 @@ export const ModalWrapper: React.FC = () => {
       </Component>
     );
   } else {
-    throw new Error();
+    return null;
   }
 };

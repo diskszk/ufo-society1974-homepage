@@ -3,7 +3,7 @@ import { StyledContent } from "./styles";
 import { Button } from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { ModalStatus, RootStore } from "../../../types";
-import { CreateCloseModalAction } from "../../../store/ModalStatusReducer";
+import { createCloseModalAction } from "../../../store/ModalStatusReducer";
 import { useNavigate } from "react-router-dom";
 
 type ComponentProps = {
@@ -30,7 +30,7 @@ export const ErrorModalContent: React.FC = () => {
   );
 
   const handleClickClose = useCallback(() => {
-    dispatch(CreateCloseModalAction());
+    dispatch(createCloseModalAction());
 
     navigate(-1);
   }, [dispatch, navigate]);
@@ -40,7 +40,7 @@ export const ErrorModalContent: React.FC = () => {
       ev.preventDefault();
 
       if (ev.key === "Escape") {
-        dispatch(CreateCloseModalAction());
+        dispatch(createCloseModalAction());
 
         navigate(-1);
       }
