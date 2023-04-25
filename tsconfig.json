@@ -11,9 +11,9 @@
     // viteを使うのに必要
     "isolatedModules": true,
     "useDefineForClassFields": true,
-    "types": ["vite/client", "vitest/globals"]
+    "types": ["vite/client"]
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "jest.setup.ts", "__testMocks__/fileMock.js"],
   "exclude": [
     "./src/?(*.)+(spec|test).+(ts|tsx|js)",
     "./node_modules",
