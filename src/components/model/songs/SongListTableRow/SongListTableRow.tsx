@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { StyledAnchor, StyledTableCell, StyledTableRow } from "./styles";
-import { createFailRequestAction } from "../../../../store/ModalStatusReducer";
+import { createOpenErrorModalAction } from "../../../../store/ModalStatusReducer";
 import { SongSummary } from "../../../../types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchSong } from "../../../../lib";
@@ -21,7 +21,7 @@ export const SongListTableRow: React.FC<Props> = ({ albumId, songSummary }) => {
     {
       onError: () => {
         dispatch(
-          createFailRequestAction(
+          createOpenErrorModalAction(
             "データの取得に失敗しました。\n通信環境をご確認の上再度お試しください。"
           )
         );

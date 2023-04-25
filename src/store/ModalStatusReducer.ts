@@ -1,58 +1,43 @@
 import { ModalStatus } from "../types";
 import { initialState } from "./initialState";
 
-const CLOSE_MODAL = "CLOSE_MODAL",
-  START_REQUEST = "START_REQUEST",
-  SUCCESS_REQUEST = "SUCCESS_REQUEST",
-  FAIL_REQUEST = "FAIL_REQUEST";
+const CLOSE_MODAL = "CLOSE_MODAL";
+const OPEN_LOADING_MODAL = "OPEN_LOADING_MODAL";
+const OPEN_ERROR_MODAL = "OPEN_ERROR_MODAL";
 
 type CloseModalAction = {
   type: typeof CLOSE_MODAL;
 };
-type StartRequestAction = {
-  type: typeof START_REQUEST;
+type OpenLoadingModalAction = {
+  type: typeof OPEN_LOADING_MODAL;
 };
-type SuccessRequestAction = {
-  type: typeof SUCCESS_REQUEST;
-};
-type FailRequestAction = {
-  type: typeof FAIL_REQUEST;
+type OpenErrorModalAction = {
+  type: typeof OPEN_ERROR_MODAL;
   payload: string;
 };
 
-type ModalStatusActionTypes =
-  | CloseModalAction
-  | StartRequestAction
-  | SuccessRequestAction
-  | FailRequestAction;
-
-export const CreateCloseModalAction = (): ModalStatusActionTypes => {
+export const createCloseModalAction = (): CloseModalAction => {
   return {
     type: CLOSE_MODAL,
   };
 };
-export const createStartRequestAction = (): ModalStatusActionTypes => {
+export const createOpenLoadingModalAction = (): OpenLoadingModalAction => {
   return {
-    type: START_REQUEST,
+    type: OPEN_LOADING_MODAL,
   };
 };
-export const createSuccessRequestAction = (): ModalStatusActionTypes => {
-  return {
-    type: SUCCESS_REQUEST,
-  };
-};
-export const createFailRequestAction = (
+export const createOpenErrorModalAction = (
   errorMessage: string
-): ModalStatusActionTypes => {
+): OpenErrorModalAction => {
   return {
-    type: FAIL_REQUEST,
+    type: OPEN_ERROR_MODAL,
     payload: errorMessage,
   };
 };
 
 export const ModalStatusReducer = (
   state = initialState.modalStatus,
-  action: ModalStatusActionTypes
+  action: CloseModalAction | OpenLoadingModalAction | OpenErrorModalAction
 ): ModalStatus => {
   switch (action.type) {
     case CLOSE_MODAL:
@@ -62,19 +47,13 @@ export const ModalStatusReducer = (
         modalType: "",
         errorMessage: "",
       };
-    case START_REQUEST:
+    case OPEN_LOADING_MODAL:
       return {
         ...state,
         isOpen: true,
         modalType: "LOADING",
       };
-    case SUCCESS_REQUEST:
-      return {
-        ...state,
-        isOpen: false,
-        modalType: "",
-      };
-    case FAIL_REQUEST:
+    case OPEN_ERROR_MODAL:
       return {
         ...state,
         isOpen: true,
